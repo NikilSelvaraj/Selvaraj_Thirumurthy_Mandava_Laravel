@@ -131,6 +131,7 @@ function Admin () {
             }
         }).then(result => {
             setEquipments(result.data);
+            setNoOfEquipments(equipments.length);
         }).catch(error => {
         });
     }
@@ -184,18 +185,18 @@ function Admin () {
         });
     }
 
-    function deleteEmployee(elementId) {
+    function deleteManager(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/deleteemployee',
+            url: process.env.REACT_APP_API_PATH + '/deletemanager',
             headers: {
                 'content-type': 'application/json'
             },
             data: { ID: elementId }
         }).then(result => {
-            employee.splice(employee.findIndex(emp => emp.ID === elementId), 1)
-            setEmployee(employee);
-            updateEmployeeTable()
+            manager.splice(manager.findIndex(emp => emp.ID === elementId), 1)
+            setManager(manager);
+            updateManagerTable()
         }).catch(error => {
         });
     }
@@ -286,15 +287,15 @@ function Admin () {
         });
     }
 
-    function updateEmployeeTable() {
+    function updateManagerTable() {
         axios({
             method: 'get',
-            url: process.env.REACT_APP_API_PATH + '/getemployees',
+            url: process.env.REACT_APP_API_PATH + '/getmanagers',
             headers: {
                 'content-type': 'application/json'
             }
         }).then(result => {
-            setEmployee(result.data);
+            setManager(result.data);
         }).catch(error => {
         });
     }
@@ -321,6 +322,7 @@ function Admin () {
             }
         }).then(result => {
             setCustomers(result.data);
+            setNoOfCustomers(customers.length);
         }).catch(error => {
         });
     }

@@ -2396,6 +2396,7 @@ function Admin() {
       }
     }).then(function (result) {
       setEquipments(result.data);
+      setNoOfEquipments(equipments.length);
     })["catch"](function (error) {});
   } // delete row from given table
 
@@ -2457,10 +2458,10 @@ function Admin() {
     })["catch"](function (error) {});
   }
 
-  function deleteEmployee(elementId) {
+  function deleteManager(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deleteemployee',
+      url: process.env.REACT_APP_API_PATH + '/deletemanager',
       headers: {
         'content-type': 'application/json'
       },
@@ -2468,11 +2469,11 @@ function Admin() {
         ID: elementId
       }
     }).then(function (result) {
-      employee.splice(employee.findIndex(function (emp) {
+      manager.splice(manager.findIndex(function (emp) {
         return emp.ID === elementId;
       }), 1);
-      setEmployee(employee);
-      updateEmployeeTable();
+      setManager(manager);
+      updateManagerTable();
     })["catch"](function (error) {});
   }
 
@@ -2571,15 +2572,15 @@ function Admin() {
     })["catch"](function (error) {});
   }
 
-  function updateEmployeeTable() {
+  function updateManagerTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getemployees',
+      url: process.env.REACT_APP_API_PATH + '/getmanagers',
       headers: {
         'content-type': 'application/json'
       }
     }).then(function (result) {
-      setEmployee(result.data);
+      setManager(result.data);
     })["catch"](function (error) {});
   }
 
@@ -2604,6 +2605,7 @@ function Admin() {
       }
     }).then(function (result) {
       setCustomers(result.data);
+      setNoOfCustomers(customers.length);
     })["catch"](function (error) {});
   } // delete row from given table
 
