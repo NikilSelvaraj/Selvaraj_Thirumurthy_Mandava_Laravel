@@ -122,18 +122,15 @@ function Admin () {
         }).catch(error => {
         });
     }
-
     function updateEquipmentsTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/equipments.php',
+            method: 'get',
+            url: process.env.REACT_APP_API_PATH + '/getequipments',
             headers: {
                 'content-type': 'application/json'
-            },
-            data: { Function: 'getAllEquipments' }
+            }
         }).then(result => {
             setEquipments(result.data);
-            setNoOfEquipments(result.data.length);
         }).catch(error => {
         });
     }
@@ -142,11 +139,11 @@ function Admin () {
     function deleteEqp(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/equipments.php',
+            url: process.env.REACT_APP_API_PATH + '/deleteequipment',
             headers: {
                 'content-type': 'application/json'
             },
-            data: { Function: 'deleteEquipment', Data: { ID: elementId } }
+            data: { ID: elementId }
         }).then(result => {
             equipments.splice(equipments.findIndex(equipment => equipment.ID === elementId), 1)
             setEquipments(equipments);
@@ -158,11 +155,11 @@ function Admin () {
     function deleteCustomer(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/customers.php',
+            url: process.env.REACT_APP_API_PATH + '/deletecustomer',
             headers: {
                 'content-type': 'application/json'
             },
-            data: { Function: 'deleteCustomer', Data: { ID: elementId } }
+            data: { ID: elementId }
         }).then(result => {
             customers.splice(customers.findIndex(customer => customer.ID === elementId), 1)
             setCustomers(customers);
@@ -174,11 +171,11 @@ function Admin () {
     function deletePickup(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/pickupdelivery.php',
+            url: process.env.REACT_APP_API_PATH + '/deletepickup',
             headers: {
                 'content-type': 'application/json'
             },
-            data: { Function: 'deletePickup', Data: { ID: elementId } }
+            data: { ID: elementId }
         }).then(result => {
             pickup.splice(pickup.findIndex(pick => pick.ID === elementId), 1)
             setPickup(pickup);
@@ -187,18 +184,18 @@ function Admin () {
         });
     }
 
-    function deleteManager(elementId) {
+    function deleteEmployee(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/Manager.php',
+            url: process.env.REACT_APP_API_PATH + '/deleteemployee',
             headers: {
                 'content-type': 'application/json'
             },
-            data: { Function: 'deleteManager', Data: { ID: elementId } }
+            data: { ID: elementId }
         }).then(result => {
-            manager.splice(manager.findIndex(emp => emp.ID === elementId), 1)
-            setManager(manager);
-            updateManagerTable()
+            employee.splice(employee.findIndex(emp => emp.ID === elementId), 1)
+            setEmployee(employee);
+            updateEmployeeTable()
         }).catch(error => {
         });
     }
@@ -233,20 +230,36 @@ function Admin () {
     }
 
     function addOrEditEquipment(equipment) {
-        axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/equipments.php',
-            headers: {
-                'content-type': 'application/json'
-            },
-            data: { Function: (equipment.editEquipment ? 'alterRecord' : 'addNewEquipment'), Data: equipment }
-        }).then(result => {
-            equipment.editEquipment = false;
-            equipment.addEquipment = false;
-            setEquipments(equipments);
-            updateEquipmentsTable();
-        }).catch(error => {
-        });
+        if (equipment.addEquipment) {
+            axios({
+                method: 'post',
+                url: process.env.REACT_APP_API_PATH + '/addequipment',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                data: { Data: equipment }
+            }).then(result => {
+                equipment.addEquipment = false;
+                setEquipments(equipments);
+                updateEquipmentsTable();
+            }).catch(error => {
+            });
+        }
+        if (equipment.editEquipment) {
+            axios({
+                method: 'post',
+                url: process.env.REACT_APP_API_PATH + '/updateequipment',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                data: { Data: equipment }
+            }).then(result => {
+                equipment.editEquipment = false;
+                setEquipments(equipments);
+                updateEquipmentsTable();
+            }).catch(error => {
+            });
+        }
     }
 
     function handleEqpChange(event, equipment) {
@@ -262,40 +275,37 @@ function Admin () {
 
     function updateOrderTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/orders.php',
+            method: 'get',
+            url: process.env.REACT_APP_API_PATH + '/getorders',
             headers: {
                 'content-type': 'application/json'
-            },
-            data: { Function: 'getAllOrders' }
+            }
         }).then(result => {
             setOrders(result.data);
         }).catch(error => {
         });
     }
 
-    function updateManagerTable() {
+    function updateEmployeeTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/Manager.php',
+            method: 'get',
+            url: process.env.REACT_APP_API_PATH + '/getemployees',
             headers: {
                 'content-type': 'application/json'
-            },
-            data: { Function: 'getAllManagers' }
+            }
         }).then(result => {
-            setManager(result.data);
+            setEmployee(result.data);
         }).catch(error => {
         });
     }
 
     function updatePickupTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/pickupdelivery.php',
+            method: 'get',
+            url: process.env.REACT_APP_API_PATH + '/getpickups',
             headers: {
                 'content-type': 'application/json'
-            },
-            data: { Function: 'getAllPickup' }
+            }
         }).then(result => {
             setPickup(result.data);
         }).catch(error => {
@@ -304,15 +314,13 @@ function Admin () {
 
     function updateCustomerTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/customers.php',
+            method: 'get',
+            url: process.env.REACT_APP_API_PATH + '/getcustomers',
             headers: {
                 'content-type': 'application/json'
-            },
-            data: { Function: 'getAllCustomers' }
+            }
         }).then(result => {
             setCustomers(result.data);
-            setNoOfCustomers(result.data.length)
         }).catch(error => {
         });
     }
@@ -320,11 +328,11 @@ function Admin () {
     function deleteOrder(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/orders.php',
+            url: process.env.REACT_APP_API_PATH + '/deleteorder',
             headers: {
                 'content-type': 'application/json'
             },
-            data: { Function: 'deleteOrder', Data: { Order_ID: elementId } }
+            data: { Order_ID: elementId }
         }).then(result => {
             orders.splice(orders.findIndex(order => order.Order_ID === elementId), 1)
             setOrders([...orders]);
@@ -365,20 +373,36 @@ function Admin () {
     }
 
     function addOrEditOrder(order) {
-        axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/orders.php',
-            headers: {
-                'content-type': 'application/json'
-            },
-            data: { Function: (order.editOrder ? 'alterRecord' : 'addNewOrder'), Data: order }
-        }).then(result => {
-            order.editOrder = false;
-            order.addOrder = false;
-            setOrders([...orders]);
-            updateOrderTable();
-        }).catch(error => {
-        });
+        if (order.addOrder) {
+            axios({
+                method: 'post',
+                url: process.env.REACT_APP_API_PATH + '/addorder',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                data: { Data: order }
+            }).then(result => {
+                order.addOrder = false;
+                setOrders(orders);
+                updateOrderTable();
+            }).catch(error => {
+            });
+        }
+        if (order.editOrder) {
+            axios({
+                method: 'post',
+                url: process.env.REACT_APP_API_PATH + '/updateorder',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                data: { Data: order }
+            }).then(result => {
+                order.editOrder = false;
+                setOrders(orders);
+                updateOrderTable();
+            }).catch(error => {
+            });
+        }
 
     }
 

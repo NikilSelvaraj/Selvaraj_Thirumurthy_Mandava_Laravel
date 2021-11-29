@@ -2389,17 +2389,13 @@ function Admin() {
 
   function updateEquipmentsTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/equipments.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getequipments',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllEquipments'
       }
     }).then(function (result) {
       setEquipments(result.data);
-      setNoOfEquipments(result.data.length);
     })["catch"](function (error) {});
   } // delete row from given table
 
@@ -2407,15 +2403,12 @@ function Admin() {
   function deleteEqp(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/equipments.php',
+      url: process.env.REACT_APP_API_PATH + '/deleteequipment',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteEquipment',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       equipments.splice(equipments.findIndex(function (equipment) {
@@ -2429,15 +2422,12 @@ function Admin() {
   function deleteCustomer(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/customers.php',
+      url: process.env.REACT_APP_API_PATH + '/deletecustomer',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteCustomer',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       customers.splice(customers.findIndex(function (customer) {
@@ -2451,15 +2441,12 @@ function Admin() {
   function deletePickup(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/pickupdelivery.php',
+      url: process.env.REACT_APP_API_PATH + '/deletepickup',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deletePickup',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       pickup.splice(pickup.findIndex(function (pick) {
@@ -2470,25 +2457,22 @@ function Admin() {
     })["catch"](function (error) {});
   }
 
-  function deleteManager(elementId) {
+  function deleteEmployee(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/Manager.php',
+      url: process.env.REACT_APP_API_PATH + '/deleteemployee',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteManager',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
-      manager.splice(manager.findIndex(function (emp) {
+      employee.splice(employee.findIndex(function (emp) {
         return emp.ID === elementId;
       }), 1);
-      setManager(manager);
-      updateManagerTable();
+      setEmployee(employee);
+      updateEmployeeTable();
     })["catch"](function (error) {});
   }
 
@@ -2528,22 +2512,39 @@ function Admin() {
   }
 
   function addOrEditEquipment(equipment) {
-    axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/equipments.php',
-      headers: {
-        'content-type': 'application/json'
-      },
-      data: {
-        Function: equipment.editEquipment ? 'alterRecord' : 'addNewEquipment',
-        Data: equipment
-      }
-    }).then(function (result) {
-      equipment.editEquipment = false;
-      equipment.addEquipment = false;
-      setEquipments(equipments);
-      updateEquipmentsTable();
-    })["catch"](function (error) {});
+    if (equipment.addEquipment) {
+      axios__WEBPACK_IMPORTED_MODULE_6___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/addequipment',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: equipment
+        }
+      }).then(function (result) {
+        equipment.addEquipment = false;
+        setEquipments(equipments);
+        updateEquipmentsTable();
+      })["catch"](function (error) {});
+    }
+
+    if (equipment.editEquipment) {
+      axios__WEBPACK_IMPORTED_MODULE_6___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/updateequipment',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: equipment
+        }
+      }).then(function (result) {
+        equipment.editEquipment = false;
+        setEquipments(equipments);
+        updateEquipmentsTable();
+      })["catch"](function (error) {});
+    }
   }
 
   function handleEqpChange(event, equipment) {
@@ -2560,43 +2561,34 @@ function Admin() {
 
   function updateOrderTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getorders',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllOrders'
       }
     }).then(function (result) {
       setOrders(result.data);
     })["catch"](function (error) {});
   }
 
-  function updateManagerTable() {
+  function updateEmployeeTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/Manager.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getemployees',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllManagers'
       }
     }).then(function (result) {
-      setManager(result.data);
+      setEmployee(result.data);
     })["catch"](function (error) {});
   }
 
   function updatePickupTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/pickupdelivery.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getpickups',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllPickup'
       }
     }).then(function (result) {
       setPickup(result.data);
@@ -2605,17 +2597,13 @@ function Admin() {
 
   function updateCustomerTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/customers.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getcustomers',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllCustomers'
       }
     }).then(function (result) {
       setCustomers(result.data);
-      setNoOfCustomers(result.data.length);
     })["catch"](function (error) {});
   } // delete row from given table
 
@@ -2623,15 +2611,12 @@ function Admin() {
   function deleteOrder(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      url: process.env.REACT_APP_API_PATH + '/deleteorder',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteOrder',
-        Data: {
-          Order_ID: elementId
-        }
+        Order_ID: elementId
       }
     }).then(function (result) {
       orders.splice(orders.findIndex(function (order) {
@@ -2679,22 +2664,39 @@ function Admin() {
   }
 
   function addOrEditOrder(order) {
-    axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
-      headers: {
-        'content-type': 'application/json'
-      },
-      data: {
-        Function: order.editOrder ? 'alterRecord' : 'addNewOrder',
-        Data: order
-      }
-    }).then(function (result) {
-      order.editOrder = false;
-      order.addOrder = false;
-      setOrders(_toConsumableArray(orders));
-      updateOrderTable();
-    })["catch"](function (error) {});
+    if (order.addOrder) {
+      axios__WEBPACK_IMPORTED_MODULE_6___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/addorder',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: order
+        }
+      }).then(function (result) {
+        order.addOrder = false;
+        setOrders(orders);
+        updateOrderTable();
+      })["catch"](function (error) {});
+    }
+
+    if (order.editOrder) {
+      axios__WEBPACK_IMPORTED_MODULE_6___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/updateorder',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: order
+        }
+      }).then(function (result) {
+        order.editOrder = false;
+        setOrders(orders);
+        updateOrderTable();
+      })["catch"](function (error) {});
+    }
   }
 
   function handleOrdChange(event, order) {
@@ -3790,13 +3792,10 @@ function Manager() {
 
   function updateEquipmentsTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/equipments.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getequipments',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllEquipments'
       }
     }).then(function (result) {
       setEquipments(result.data);
@@ -3807,15 +3806,12 @@ function Manager() {
   function deleteEqp(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/equipments.php',
+      url: process.env.REACT_APP_API_PATH + '/deleteequipment',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteEquipment',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       equipments.splice(equipments.findIndex(function (equipment) {
@@ -3829,15 +3825,12 @@ function Manager() {
   function deleteCustomer(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/customers.php',
+      url: process.env.REACT_APP_API_PATH + '/deletecustomer',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteCustomer',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       customers.splice(customers.findIndex(function (customer) {
@@ -3851,15 +3844,12 @@ function Manager() {
   function deletePickup(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/pickupdelivery.php',
+      url: process.env.REACT_APP_API_PATH + '/deletepickup',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deletePickup',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       pickup.splice(pickup.findIndex(function (pick) {
@@ -3873,15 +3863,12 @@ function Manager() {
   function deleteEmployee(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/Employee.php',
+      url: process.env.REACT_APP_API_PATH + '/deleteemployee',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteEmployee',
-        Data: {
-          ID: elementId
-        }
+        ID: elementId
       }
     }).then(function (result) {
       employee.splice(employee.findIndex(function (emp) {
@@ -3928,22 +3915,39 @@ function Manager() {
   }
 
   function addOrEditEquipment(equipment) {
-    axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/equipments.php',
-      headers: {
-        'content-type': 'application/json'
-      },
-      data: {
-        Function: equipment.editEquipment ? 'alterRecord' : 'addNewEquipment',
-        Data: equipment
-      }
-    }).then(function (result) {
-      equipment.editEquipment = false;
-      equipment.addEquipment = false;
-      setEquipments(equipments);
-      updateEquipmentsTable();
-    })["catch"](function (error) {});
+    if (equipment.addEquipment) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/addequipment',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: equipment
+        }
+      }).then(function (result) {
+        equipment.addEquipment = false;
+        setEquipments(equipments);
+        updateEquipmentsTable();
+      })["catch"](function (error) {});
+    }
+
+    if (equipment.editEquipment) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/updateequipment',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: equipment
+        }
+      }).then(function (result) {
+        equipment.editEquipment = false;
+        setEquipments(equipments);
+        updateEquipmentsTable();
+      })["catch"](function (error) {});
+    }
   }
 
   function handleEqpChange(event, equipment) {
@@ -3960,13 +3964,10 @@ function Manager() {
 
   function updateOrderTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getorders',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllOrders'
       }
     }).then(function (result) {
       setOrders(result.data);
@@ -3975,13 +3976,10 @@ function Manager() {
 
   function updateEmployeeTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/Employee.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getemployees',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllEmployee'
       }
     }).then(function (result) {
       setEmployee(result.data);
@@ -3990,13 +3988,10 @@ function Manager() {
 
   function updatePickupTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/pickupdelivery.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getpickups',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllPickup'
       }
     }).then(function (result) {
       setPickup(result.data);
@@ -4005,13 +4000,10 @@ function Manager() {
 
   function updateCustomerTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/customers.php',
+      method: 'get',
+      url: process.env.REACT_APP_API_PATH + '/getcustomers',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllCustomers'
       }
     }).then(function (result) {
       setCustomers(result.data);
@@ -4022,15 +4014,12 @@ function Manager() {
   function deleteOrder(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      url: process.env.REACT_APP_API_PATH + '/deleteorder',
       headers: {
         'content-type': 'application/json'
       },
       data: {
-        Function: 'deleteOrder',
-        Data: {
-          Order_ID: elementId
-        }
+        Order_ID: elementId
       }
     }).then(function (result) {
       orders.splice(orders.findIndex(function (order) {
@@ -4078,22 +4067,39 @@ function Manager() {
   }
 
   function addOrEditOrder(order) {
-    axios__WEBPACK_IMPORTED_MODULE_5___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
-      headers: {
-        'content-type': 'application/json'
-      },
-      data: {
-        Function: order.editOrder ? 'alterRecord' : 'addNewOrder',
-        Data: order
-      }
-    }).then(function (result) {
-      order.editOrder = false;
-      order.addOrder = false;
-      setOrders(_toConsumableArray(orders));
-      updateOrderTable();
-    })["catch"](function (error) {});
+    if (order.addOrder) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/addorder',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: order
+        }
+      }).then(function (result) {
+        order.addOrder = false;
+        setOrders(orders);
+        updateOrderTable();
+      })["catch"](function (error) {});
+    }
+
+    if (order.editOrder) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default()({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/updateorder',
+        headers: {
+          'content-type': 'application/json'
+        },
+        data: {
+          Data: order
+        }
+      }).then(function (result) {
+        order.editOrder = false;
+        setOrders(orders);
+        updateOrderTable();
+      })["catch"](function (error) {});
+    }
   }
 
   function handleOrdChange(event, order) {
