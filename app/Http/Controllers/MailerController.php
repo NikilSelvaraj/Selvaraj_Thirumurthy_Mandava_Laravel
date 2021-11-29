@@ -16,7 +16,7 @@ class MailerController extends Controller {
 
 
     // ========== [ Compose Email ] ================
-    public function composeEmail(Request $request) {
+    public function composeEmail($emailRecipient, $emailSubject, $msg) {
         require base_path("vendor/autoload.php");
         $mail = new PHPMailer(true);     // Passing `true` enables exceptions
 
@@ -33,17 +33,15 @@ class MailerController extends Controller {
             $mail->Port = 25;                          // port - 587/465
 
             $mail->setFrom('nxs4184@mavs.uta.edu', 'Instawash Inc.');
-            $mail->addAddress($request->emailRecipient);
-            $mail->addCC($request->emailCc);
-            $mail->addBCC($request->emailBcc);
+            $mail->addAddress($emailRecipient);
 
             $mail->addReplyTo('nxs4184@mavs.uta.edu', 'Support');
 
 
             $mail->isHTML(true);                // Set email content format to HTML
 
-            $mail->Subject = $request->emailSubject;
-            $mail->Body    = $request->emailBody;
+            $mail->Subject = $emailSubject;
+            $mail->Body    = $msg;
 
             // $mail->AltBody = plain text version of email body;
 

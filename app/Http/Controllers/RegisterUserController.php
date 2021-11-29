@@ -14,31 +14,31 @@ class RegisterUserController extends Controller
         $this->MailerController = $MailerController;
     }
     function registerUser(Request $request) {
-            $user = Customer::create(
-                'First_Name': $request['firstName'],
-                'Last_Name': $request['lastName'],
-                'Email': $request['email'],
-                'Password': Hash::make(`$request->password`),
-                'User_Type': $request['userType'],
-                'ID': (int)((rand() * rand())/rand()),
-            );
+        $First_Name = $request['firstName'];
+        $userType = $request['userType'];
+            $user = Customer::create([
+                'First_Name' => $request['firstName'],
+                'Last_Name'=> $request['lastName'],
+                'Email'=> $request['email'],
+                'Password'=> Hash::make(`$request->password`),
+                'User_Type'=> $request['userType'],
+                'ID' => ((int)((rand() * rand())/rand()))]);
             if($user) {
                 $msg =  "
                         <HTML><HEAD>Welcome to InstaWash</HEAD>
                         <BODY>
                         <p>
-                        Hi $firstName, <br /> Welcome to InstaWash.<br /> You have been successfully registered to Instawash as a $userType. We hope you have the best of experience with us. Laundry has never been this easier.<br /> <br /> Thanks,<br />InstaWash Team.
+                        Hi $First_Name, <br /> Welcome to InstaWash.<br /> You have been successfully registered to Instawash as a $userType. We hope you have the best of experience with us. Laundry has never been this easier.<br /> <br /> Thanks,<br />InstaWash Team.
                         </p>
                         </BODY>
                         </HTML>";
-                $response = $this->MailerController->composeEmail({
-                    'emailRecipient':`$request['email']`,
-                    'emailSubject':'Welcome to InstaWash',
-                    'emailBody': $msg
-                });
+
+                $emailRecipient=$request['email'];
+                $emailSubject="Welcome to InstaWash";
+                $response = $this->MailerController->composeEmail($emailRecipient, $emailSubject, $msg);
                 return $response;
             } else {
-                return response(['message':'unable to register user'],401)
+                return response(['message' => "unable to register user"],401);
             } 
     }
 }

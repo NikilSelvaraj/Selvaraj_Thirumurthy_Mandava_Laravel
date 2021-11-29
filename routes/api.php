@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controller\RegisterUserController;
+use App\Http\Controllers\RegisterUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +17,5 @@ use App\Http\Controller\RegisterUserController;
 */
 
 Route::post('/authenticate',[LoginController::class,'authenticateUser']);
-Route::post('/register',[LoginController::class,'registerUser']);
+Route::post('/register',[RegisterUserController::class,'registerUser']);
 

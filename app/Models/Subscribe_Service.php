@@ -9,4 +9,8 @@ class Subscribe_Service extends Model
 {
     use HasFactory;
     public $table="Subscribe_Service";
+    public $timestamps = false;
+    protected $fillable = [
+		'First_Name', 'Last_Name', 'Email', 'Phonenumber', 'subscribe','ID','plan','day','address','city','State','cust_ID'
+	];
 }
