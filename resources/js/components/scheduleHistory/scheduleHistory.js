@@ -8,12 +8,12 @@ function ScheduleHistory (){
     },[]);
     function showScheduleTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/schedule.php',
+            method: 'get',
+            //url: process.env.REACT_APP_API_PATH + '/schedule.php',
+            url:process.env.MIX_API_PATH+ '/getschedule',
             headers: {
                 'content-type': 'application/json'
-            },
-            data: {Function: 'getAllschedule'}
+            }
         }).then(result => {
             setOrders(result.data);
         }).catch(error => {
@@ -23,11 +23,12 @@ function ScheduleHistory (){
         debugger;
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/schedule.php',
+            //url: process.env.REACT_APP_API_PATH + '/schedule.php',
+            url:process.env.MIX_API_PATH+ '/updateschedule',
             headers: {
                 'content-type': 'application/json'
             },
-            data: {Function:'alterRecord', Data:order}
+            data: order
         }).then(result => {
             order.editOrder = false;
            setOrders([...orders]);
@@ -40,13 +41,13 @@ function ScheduleHistory (){
             order.addOrder = false;
         }});
         order.editOrder = true;
-        let index =orders.findIndex(ord => ord.Phonenumber === order.Phonenumber);
+        let index =orders.findIndex(ord => ord.ID === order.ID);
         orders[index] = order;
         setOrders([...orders]);
     }
     function handleChange(event,order) {
         const { name, value } = event.target;
-        orders.forEach((ord) => {if(ord.Phonenumber === order.Phonenumber){
+        orders.forEach((ord) => {if(ord.ID === order.ID){
             ord[name] = value;
         }});
         setOrders([...orders]);

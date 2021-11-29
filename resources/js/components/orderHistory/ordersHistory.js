@@ -8,12 +8,11 @@ function OrdersHistory () {
     },[]);
     function showOrderTable() {
         axios({
-            method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/orders.php',
+            method: 'get',
+            url: process.env.MIX_API_PATH + '/getorders',
             headers: {
                 'content-type': 'application/json'
             },
-            data: {Function: 'getAllOrders'}
         }).then(result => {
             setOrders(result.data);
         }).catch(error => {
@@ -31,11 +30,11 @@ function OrdersHistory () {
     function addOrEditOrder(order) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/orders.php',
+            url: process.env.MIX_API_PATH + '/updateorder',
             headers: {
                 'content-type': 'application/json'
             },
-            data: {Function:'alterRecord', Data:order}
+            data:order
         }).then(result => {
             order.editOrder = false;
            setOrders([...orders]);

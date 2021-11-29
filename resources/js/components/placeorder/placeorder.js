@@ -44,7 +44,8 @@ class PlaceOrder extends Component{
         console.log("State Data"+JSON.stringify(this.state))
         axios({
             method:'post',
-            url:process.env.REACT_APP_API_PATH + '/placeOrder.php',
+            //url:process.env.MIX_API_PATH+ '/addorder',
+            url: process.env.MIX_API_PATH + '/addplaceorder',
             headers: {
                 'content-type':'application/json'
             },

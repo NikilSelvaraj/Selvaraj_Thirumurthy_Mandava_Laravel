@@ -51,7 +51,7 @@ class SubscribeService extends Component {
     // })
     axios({
         method:'post',
-        url:process.env.REACT_APP_API_PATH + '/subscribeService.php',
+        url:process.env.MIX_API_PATH + '/addsubcription',
         headers: {
             'content-type':'application/json'
         },
@@ -60,6 +60,7 @@ class SubscribeService extends Component {
         console.log("Data posted "+result.data);
             var x = document.getElementById("snackbar-service");
             x.className = "show";
+            x.innerText ="Subscription Succesfully Placed"
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             this.handleClear();
     }).catch(error => {
@@ -127,7 +128,6 @@ class SubscribeService extends Component {
           </div>
         </div>
         <div id="snackbar-service">
-          Subscription added
         </div>
       </div>
     )

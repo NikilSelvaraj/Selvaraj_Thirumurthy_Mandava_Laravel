@@ -39,7 +39,7 @@ class RegisterIncident extends Component {
     event.preventDefault();
     axios({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/registerIncident.php',
+      url: process.env.MIX_API_PATH + '/registerIncident',
       headers: {
         'content-type': 'application/json'
       },

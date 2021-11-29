@@ -2313,28 +2313,30 @@ function Admin() {
       });
       showSlides(slideIndex);
       console.log(chart1);
-    })["catch"](function (error) {}); // axios({
-    //     method: 'get',
-    //     url: process.env.MIX_API_PATH + '/schedule.php',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     },
-    //     data: { Function: 'getAllschedule' }
-    // }).then(result => {
-    //     SetChart2({
-    //         labels: _.keys(_.countBy(result.data, function(data) { return data.date; })),
-    //         datasets:[{
-    //             label: 'Frequency of Orders by date',
-    //             data:_.values(_.countBy(result.data, function(data) { return data.date; })),
-    //             backgroundColor: ['#d9d8d8'],
-    //             fill: true,
-    //             borderWidth:2,
-    //             borderColor: "#616161"
-    //         }]
-    //     });
-    // }).catch(error => {
-    // });
-
+    })["catch"](function (error) {});
+    axios__WEBPACK_IMPORTED_MODULE_6___default()({
+      method: 'get',
+      url: "http://localhost:8000/api" + '/getschedule',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(function (result) {
+      SetChart2({
+        labels: underscore__WEBPACK_IMPORTED_MODULE_2__["default"].keys(underscore__WEBPACK_IMPORTED_MODULE_2__["default"].countBy(result.data, function (data) {
+          return data.date;
+        })),
+        datasets: [{
+          label: 'Frequency of Orders by date',
+          data: underscore__WEBPACK_IMPORTED_MODULE_2__["default"].values(underscore__WEBPACK_IMPORTED_MODULE_2__["default"].countBy(result.data, function (data) {
+            return data.date;
+          })),
+          backgroundColor: ['#d9d8d8'],
+          fill: true,
+          borderWidth: 2,
+          borderColor: "#616161"
+        }]
+      });
+    })["catch"](function (error) {});
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
       url: "http://localhost:8000/api" + '/getcustomers',
@@ -2589,7 +2591,7 @@ function Admin() {
       }
     }).then(function (result) {
       setCustomers(result.data);
-      setNoOfCustomers(customers.length);
+      setNoOfCustomers(result.data.length);
     })["catch"](function (error) {});
   } // delete row from given table
 
@@ -5134,7 +5136,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -5213,7 +5214,7 @@ function Registration() {
 
     axios__WEBPACK_IMPORTED_MODULE_3___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/registerUser.php',
+      url: "http://localhost:8000/api" + '/register',
       headers: {
         'content-type': 'application/json'
       },
@@ -5647,7 +5648,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contactUs_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contactUs.css */ "./resources/js/components/contactus/contactUs.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -5754,7 +5754,7 @@ var ContactUs = /*#__PURE__*/function (_Component) {
       this.validateForm();
       axios__WEBPACK_IMPORTED_MODULE_1___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/contactUs.php',
+        url: "http://localhost:8000/api" + '/contactus',
         headers: {
           'content-type': 'application/json'
         },
@@ -6483,7 +6483,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/edit.png */ "./resources/js/components/assets/images/edit.png");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6522,13 +6521,10 @@ function OrdersHistory() {
 
   function showOrderTable() {
     axios__WEBPACK_IMPORTED_MODULE_0___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      method: 'get',
+      url: "http://localhost:8000/api" + '/getorders',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllOrders'
       }
     }).then(function (result) {
       setOrders(result.data);
@@ -6552,14 +6548,11 @@ function OrdersHistory() {
   function addOrEditOrder(order) {
     axios__WEBPACK_IMPORTED_MODULE_0___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      url: "http://localhost:8000/api" + '/updateorder',
       headers: {
         'content-type': 'application/json'
       },
-      data: {
-        Function: 'alterRecord',
-        Data: order
-      }
+      data: order
     }).then(function (result) {
       order.editOrder = false;
       setOrders(_toConsumableArray(orders));
@@ -6743,7 +6736,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _placeorder_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./placeorder.css */ "./resources/js/components/placeorder/placeorder.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -6832,7 +6824,8 @@ var PlaceOrder = /*#__PURE__*/function (_Component) {
       console.log("State Data" + JSON.stringify(this.state));
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/placeOrder.php',
+        //url:process.env.MIX_API_PATH+ '/addorder',
+        url: "http://localhost:8000/api" + '/addplaceorder',
         headers: {
           'content-type': 'application/json'
         },
@@ -7015,7 +7008,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _registerIncident_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./registerIncident.css */ "./resources/js/components/registerIncident/registerIncident.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -7100,7 +7092,7 @@ var RegisterIncident = /*#__PURE__*/function (_Component) {
       event.preventDefault();
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/registerIncident.php',
+        url: "http://localhost:8000/api" + '/registerIncident',
         headers: {
           'content-type': 'application/json'
         },
@@ -7268,7 +7260,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _scheduleDrop_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scheduleDrop.css */ "./resources/js/components/scheduleDrop/scheduleDrop.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -7358,11 +7349,12 @@ var ScheduleDrop = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       console.log("State Data" + JSON.stringify(this.state));
-      event.preventDefault();
-      this.validateForm();
+      event.preventDefault(); // this.validateForm()
+
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/scheduleDrop.php',
+        // url:process.env.REACT_APP_API_PATH + '/scheduleDrop.php',
+        url: "http://localhost:8000/api" + '/addschedule',
         headers: {
           'content-type': 'application/json'
         },
@@ -7575,7 +7567,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/edit.png */ "./resources/js/components/assets/images/edit.png");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7614,13 +7605,11 @@ function ScheduleHistory() {
 
   function showScheduleTable() {
     axios__WEBPACK_IMPORTED_MODULE_0___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/schedule.php',
+      method: 'get',
+      //url: process.env.REACT_APP_API_PATH + '/schedule.php',
+      url: "http://localhost:8000/api" + '/getschedule',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllschedule'
       }
     }).then(function (result) {
       setOrders(result.data);
@@ -7631,14 +7620,12 @@ function ScheduleHistory() {
     debugger;
     axios__WEBPACK_IMPORTED_MODULE_0___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/schedule.php',
+      //url: process.env.REACT_APP_API_PATH + '/schedule.php',
+      url: "http://localhost:8000/api" + '/updateschedule',
       headers: {
         'content-type': 'application/json'
       },
-      data: {
-        Function: 'alterRecord',
-        Data: order
-      }
+      data: order
     }).then(function (result) {
       order.editOrder = false;
       setOrders(_toConsumableArray(orders));
@@ -7654,7 +7641,7 @@ function ScheduleHistory() {
     });
     order.editOrder = true;
     var index = orders.findIndex(function (ord) {
-      return ord.Phonenumber === order.Phonenumber;
+      return ord.ID === order.ID;
     });
     orders[index] = order;
     setOrders(_toConsumableArray(orders));
@@ -7665,7 +7652,7 @@ function ScheduleHistory() {
         name = _event$target.name,
         value = _event$target.value;
     orders.forEach(function (ord) {
-      if (ord.Phonenumber === order.Phonenumber) {
+      if (ord.ID === order.ID) {
         ord[name] = value;
       }
     });
@@ -8177,7 +8164,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _subscribeService_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subscribeService.css */ "./resources/js/components/subscribeService/subscribeService.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -8274,7 +8260,7 @@ var SubscribeService = /*#__PURE__*/function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/subscribeService.php',
+        url: "http://localhost:8000/api" + '/addsubcription',
         headers: {
           'content-type': 'application/json'
         },
@@ -8283,6 +8269,7 @@ var SubscribeService = /*#__PURE__*/function (_Component) {
         console.log("Data posted " + result.data);
         var x = document.getElementById("snackbar-service");
         x.className = "show";
+        x.innerText = "Subscription Succesfully Placed";
         setTimeout(function () {
           x.className = x.className.replace("show", "");
         }, 3000);
@@ -8471,8 +8458,7 @@ var SubscribeService = /*#__PURE__*/function (_Component) {
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          id: "snackbar-service",
-          children: "Subscription added"
+          id: "snackbar-service"
         })]
       });
     }

@@ -65,27 +65,26 @@ function Admin () {
         }).catch(error => {
         });
 
-        // axios({
-        //     method: 'get',
-        //     url: process.env.MIX_API_PATH + '/schedule.php',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     data: { Function: 'getAllschedule' }
-        // }).then(result => {
-        //     SetChart2({
-        //         labels: _.keys(_.countBy(result.data, function(data) { return data.date; })),
-        //         datasets:[{
-        //             label: 'Frequency of Orders by date',
-        //             data:_.values(_.countBy(result.data, function(data) { return data.date; })),
-        //             backgroundColor: ['#d9d8d8'],
-        //             fill: true,
-        //             borderWidth:2,
-        //             borderColor: "#616161"
-        //         }]
-        //     });
-        // }).catch(error => {
-        // });
+        axios({
+            method: 'get',
+            url: process.env.MIX_API_PATH + '/getschedule',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(result => {
+            SetChart2({
+                labels: _.keys(_.countBy(result.data, function(data) { return data.date; })),
+                datasets:[{
+                    label: 'Frequency of Orders by date',
+                    data:_.values(_.countBy(result.data, function(data) { return data.date; })),
+                    backgroundColor: ['#d9d8d8'],
+                    fill: true,
+                    borderWidth:2,
+                    borderColor: "#616161"
+                }]
+            });
+        }).catch(error => {
+        });
 
         axios({
             method: 'get',
@@ -320,7 +319,7 @@ function Admin () {
             }
         }).then(result => {
             setCustomers(result.data);
-            setNoOfCustomers(customers.length);
+            setNoOfCustomers(result.data.length);
         }).catch(error => {
         });
     }

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Schedule_Drop extends Model
+class Contact_Us extends Model
 {
     use HasFactory;
-    public $table = "Schedule_Drop";
+    public $table = "Contact_Us";
     public $timestamps = false;
     protected $fillable = [
-		'First_Name', 'Last_Name', 'Email', 'Phonenumber', 'service','customer_ID','date','time'
+		'First_Name', 'Last_Name', 'Phonenumber' ,'Email', 'query'
 	];
 }

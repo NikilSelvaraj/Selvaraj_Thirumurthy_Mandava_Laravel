@@ -36,7 +36,7 @@ function Registration() {
         }
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/registerUser.php',
+            url: process.env.MIX_API_PATH + '/register',
             headers: {
                 'content-type': 'application/json'
             },

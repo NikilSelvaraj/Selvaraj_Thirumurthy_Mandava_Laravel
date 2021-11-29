@@ -11,6 +11,6 @@ class Subscribe_Service extends Model
     public $table="Subscribe_Service";
     public $timestamps = false;
     protected $fillable = [
-		'First_Name', 'Last_Name', 'Email', 'Phonenumber', 'subscribe','ID','plan','day','address','city','State','cust_ID'
+		'First_Name', 'Last_Name', 'Email', 'Phonenumber', 'subscribe','plan','day','address','city','State','cust_ID'
 	];
 }

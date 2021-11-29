@@ -56,7 +56,7 @@ class ContactUs extends Component {
         this.validateForm()
         axios({
             method:'post',
-            url:process.env.REACT_APP_API_PATH + '/contactUs.php',
+            url: process.env.MIX_API_PATH + '/contactus',
             headers: {
                 'content-type':'application/json'
             },

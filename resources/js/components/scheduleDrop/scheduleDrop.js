@@ -42,10 +42,11 @@ class ScheduleDrop extends Component {
     handleSubmit(event){
         console.log("State Data"+JSON.stringify(this.state))
         event.preventDefault();
-        this.validateForm()
+        // this.validateForm()
         axios({
             method:'post',
-            url:process.env.REACT_APP_API_PATH + '/scheduleDrop.php',
+            // url:process.env.REACT_APP_API_PATH + '/scheduleDrop.php',
+            url:process.env.MIX_API_PATH+ '/addschedule',
             headers: {
                 'content-type':'application/json'
             },
