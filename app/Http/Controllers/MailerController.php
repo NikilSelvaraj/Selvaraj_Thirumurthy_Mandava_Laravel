@@ -46,15 +46,15 @@ class MailerController extends Controller {
             // $mail->AltBody = plain text version of email body;
 
             if( !$mail->send() ) {
-                return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+                return response(["failed" => "Email not sent."],471)->withErrors($mail->ErrorInfo);
             }
             
             else {
-                return back()->with("success", "Email has been sent.");
+                return response(["success" => "Email has been sent."],200);
             }
 
         } catch (Exception $e) {
-             return back()->with('error','Message could not be sent.');
+             return response(['error'=> 'Message could not be sent.'],471);
         }
     }
 }
