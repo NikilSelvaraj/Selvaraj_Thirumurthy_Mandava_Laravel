@@ -11,6 +11,6 @@ class ManagerController extends Controller
     }
 
     function deleteManager(Request $request) {
-        return Personel::where('ID',`$request->ID`)->delete();
+        return Personel::where('ID',$request->ID)->delete();
     } 
 }

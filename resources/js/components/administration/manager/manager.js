@@ -28,7 +28,7 @@ function Manager() {
     function updateEquipmentsTable() {
         axios({
             method: 'get',
-            url: process.env.REACT_APP_API_PATH + '/getequipments',
+            url: process.env.MIX_API_PATH + '/getequipments',
             headers: {
                 'content-type': 'application/json'
             }
@@ -42,7 +42,7 @@ function Manager() {
     function deleteEqp(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/deleteequipment',
+            url: process.env.MIX_API_PATH + '/deleteequipment',
             headers: {
                 'content-type': 'application/json'
             },
@@ -58,7 +58,7 @@ function Manager() {
     function deleteCustomer(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/deletecustomer',
+            url: process.env.MIX_API_PATH + '/deletecustomer',
             headers: {
                 'content-type': 'application/json'
             },
@@ -74,7 +74,7 @@ function Manager() {
     function deletePickup(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/deletepickup',
+            url: process.env.MIX_API_PATH + '/deletepickup',
             headers: {
                 'content-type': 'application/json'
             },
@@ -90,7 +90,7 @@ function Manager() {
     function deleteEmployee(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/deleteemployee',
+            url: process.env.MIX_API_PATH + '/deleteemployee',
             headers: {
                 'content-type': 'application/json'
             },
@@ -136,11 +136,11 @@ function Manager() {
         if (equipment.addEquipment) {
             axios({
                 method: 'post',
-                url: process.env.REACT_APP_API_PATH + '/addequipment',
+                url: process.env.MIX_API_PATH + '/addequipment',
                 headers: {
                     'content-type': 'application/json'
                 },
-                data: { Data: equipment }
+                data: equipment
             }).then(result => {
                 equipment.addEquipment = false;
                 setEquipments(equipments);
@@ -151,11 +151,11 @@ function Manager() {
         if (equipment.editEquipment) {
             axios({
                 method: 'post',
-                url: process.env.REACT_APP_API_PATH + '/updateequipment',
+                url: process.env.MIX_API_PATH + '/updateequipment',
                 headers: {
                     'content-type': 'application/json'
                 },
-                data: { Data: equipment }
+                data: equipment
             }).then(result => {
                 equipment.editEquipment = false;
                 setEquipments(equipments);
@@ -179,7 +179,7 @@ function Manager() {
     function updateOrderTable() {
         axios({
             method: 'get',
-            url: process.env.REACT_APP_API_PATH + '/getorders',
+            url: process.env.MIX_API_PATH + '/getorders',
             headers: {
                 'content-type': 'application/json'
             }
@@ -192,7 +192,7 @@ function Manager() {
     function updateEmployeeTable() {
         axios({
             method: 'get',
-            url: process.env.REACT_APP_API_PATH + '/getemployees',
+            url: process.env.MIX_API_PATH + '/getemployees',
             headers: {
                 'content-type': 'application/json'
             }
@@ -205,7 +205,7 @@ function Manager() {
     function updatePickupTable() {
         axios({
             method: 'get',
-            url: process.env.REACT_APP_API_PATH + '/getpickups',
+            url: process.env.MIX_API_PATH + '/getpickups',
             headers: {
                 'content-type': 'application/json'
             }
@@ -218,7 +218,7 @@ function Manager() {
     function updateCustomerTable() {
         axios({
             method: 'get',
-            url: process.env.REACT_APP_API_PATH + '/getcustomers',
+            url: process.env.MIX_API_PATH + '/getcustomers',
             headers: {
                 'content-type': 'application/json'
             }
@@ -231,7 +231,7 @@ function Manager() {
     function deleteOrder(elementId) {
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/deleteorder',
+            url: process.env.MIX_API_PATH + '/deleteorder',
             headers: {
                 'content-type': 'application/json'
             },
@@ -279,11 +279,11 @@ function Manager() {
         if (order.addOrder) {
             axios({
                 method: 'post',
-                url: process.env.REACT_APP_API_PATH + '/addorder',
+                url: process.env.MIX_API_PATH + '/addorder',
                 headers: {
                     'content-type': 'application/json'
                 },
-                data: { Data: order }
+                data: order
             }).then(result => {
                 order.addOrder = false;
                 setOrders(orders);
@@ -294,11 +294,11 @@ function Manager() {
         if (order.editOrder) {
             axios({
                 method: 'post',
-                url: process.env.REACT_APP_API_PATH + '/updateorder',
+                url: process.env.MIX_API_PATH + '/updateorder',
                 headers: {
                     'content-type': 'application/json'
                 },
-                data: { Data: order }
+                data: order
             }).then(result => {
                 order.editOrder = false;
                 setOrders(orders);

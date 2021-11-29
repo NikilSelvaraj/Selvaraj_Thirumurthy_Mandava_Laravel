@@ -11,6 +11,6 @@ class EmployeeController extends Controller
     }
 
     function deleteEmployee(Request $request) {
-        return Personel::where('ID',`$request->ID`)->delete();
+        return Personel::where('ID',$request->ID)->delete();
     } 
 }

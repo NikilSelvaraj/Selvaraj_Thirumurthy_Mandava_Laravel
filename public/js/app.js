@@ -2171,7 +2171,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-chartjs-2 */ "./node_modules/react-chartjs-2/dist/index.modern.js");
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2293,13 +2292,10 @@ function Admin() {
 
   function populateCharts() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/orders.php',
+      method: 'get',
+      url: "http://localhost:8000/api" + '/getorders',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllOrders'
       }
     }).then(function (result) {
       SetChart1({
@@ -2317,41 +2313,33 @@ function Admin() {
       });
       showSlides(slideIndex);
       console.log(chart1);
-    })["catch"](function (error) {});
+    })["catch"](function (error) {}); // axios({
+    //     method: 'get',
+    //     url: process.env.MIX_API_PATH + '/schedule.php',
+    //     headers: {
+    //         'content-type': 'application/json'
+    //     },
+    //     data: { Function: 'getAllschedule' }
+    // }).then(result => {
+    //     SetChart2({
+    //         labels: _.keys(_.countBy(result.data, function(data) { return data.date; })),
+    //         datasets:[{
+    //             label: 'Frequency of Orders by date',
+    //             data:_.values(_.countBy(result.data, function(data) { return data.date; })),
+    //             backgroundColor: ['#d9d8d8'],
+    //             fill: true,
+    //             borderWidth:2,
+    //             borderColor: "#616161"
+    //         }]
+    //     });
+    // }).catch(error => {
+    // });
+
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/schedule.php',
+      method: 'get',
+      url: "http://localhost:8000/api" + '/getcustomers',
       headers: {
         'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllschedule'
-      }
-    }).then(function (result) {
-      SetChart2({
-        labels: underscore__WEBPACK_IMPORTED_MODULE_2__["default"].keys(underscore__WEBPACK_IMPORTED_MODULE_2__["default"].countBy(result.data, function (data) {
-          return data.date;
-        })),
-        datasets: [{
-          label: 'Frequency of Orders by date',
-          data: underscore__WEBPACK_IMPORTED_MODULE_2__["default"].values(underscore__WEBPACK_IMPORTED_MODULE_2__["default"].countBy(result.data, function (data) {
-            return data.date;
-          })),
-          backgroundColor: ['#d9d8d8'],
-          fill: true,
-          borderWidth: 2,
-          borderColor: "#616161"
-        }]
-      });
-    })["catch"](function (error) {});
-    axios__WEBPACK_IMPORTED_MODULE_6___default()({
-      method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/customers.php',
-      headers: {
-        'content-type': 'application/json'
-      },
-      data: {
-        Function: 'getAllCustomers'
       }
     }).then(function (result) {
       var customer = result.data.filter(function (d) {
@@ -2390,7 +2378,7 @@ function Admin() {
   function updateEquipmentsTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getequipments',
+      url: "http://localhost:8000/api" + '/getequipments',
       headers: {
         'content-type': 'application/json'
       }
@@ -2404,7 +2392,7 @@ function Admin() {
   function deleteEqp(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deleteequipment',
+      url: "http://localhost:8000/api" + '/deleteequipment',
       headers: {
         'content-type': 'application/json'
       },
@@ -2423,7 +2411,7 @@ function Admin() {
   function deleteCustomer(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deletecustomer',
+      url: "http://localhost:8000/api" + '/deletecustomer',
       headers: {
         'content-type': 'application/json'
       },
@@ -2442,7 +2430,7 @@ function Admin() {
   function deletePickup(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deletepickup',
+      url: "http://localhost:8000/api" + '/deletepickup',
       headers: {
         'content-type': 'application/json'
       },
@@ -2461,7 +2449,7 @@ function Admin() {
   function deleteManager(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deletemanager',
+      url: "http://localhost:8000/api" + '/deletemanager',
       headers: {
         'content-type': 'application/json'
       },
@@ -2516,13 +2504,11 @@ function Admin() {
     if (equipment.addEquipment) {
       axios__WEBPACK_IMPORTED_MODULE_6___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/addequipment',
+        url: "http://localhost:8000/api" + '/addequipment',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: equipment
-        }
+        data: equipment
       }).then(function (result) {
         equipment.addEquipment = false;
         setEquipments(equipments);
@@ -2533,13 +2519,11 @@ function Admin() {
     if (equipment.editEquipment) {
       axios__WEBPACK_IMPORTED_MODULE_6___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/updateequipment',
+        url: "http://localhost:8000/api" + '/updateequipment',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: equipment
-        }
+        data: equipment
       }).then(function (result) {
         equipment.editEquipment = false;
         setEquipments(equipments);
@@ -2563,7 +2547,7 @@ function Admin() {
   function updateOrderTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getorders',
+      url: "http://localhost:8000/api" + '/getorders',
       headers: {
         'content-type': 'application/json'
       }
@@ -2575,7 +2559,7 @@ function Admin() {
   function updateManagerTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getmanagers',
+      url: "http://localhost:8000/api" + '/getmanagers',
       headers: {
         'content-type': 'application/json'
       }
@@ -2587,7 +2571,7 @@ function Admin() {
   function updatePickupTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getpickups',
+      url: "http://localhost:8000/api" + '/getpickups',
       headers: {
         'content-type': 'application/json'
       }
@@ -2599,7 +2583,7 @@ function Admin() {
   function updateCustomerTable() {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getcustomers',
+      url: "http://localhost:8000/api" + '/getcustomers',
       headers: {
         'content-type': 'application/json'
       }
@@ -2613,7 +2597,7 @@ function Admin() {
   function deleteOrder(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_6___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deleteorder',
+      url: "http://localhost:8000/api" + '/deleteorder',
       headers: {
         'content-type': 'application/json'
       },
@@ -2669,13 +2653,11 @@ function Admin() {
     if (order.addOrder) {
       axios__WEBPACK_IMPORTED_MODULE_6___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/addorder',
+        url: "http://localhost:8000/api" + '/addorder',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: order
-        }
+        data: order
       }).then(function (result) {
         order.addOrder = false;
         setOrders(orders);
@@ -2686,13 +2668,11 @@ function Admin() {
     if (order.editOrder) {
       axios__WEBPACK_IMPORTED_MODULE_6___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/updateorder',
+        url: "http://localhost:8000/api" + '/updateorder',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: order
-        }
+        data: order
       }).then(function (result) {
         order.editOrder = false;
         setOrders(orders);
@@ -3720,7 +3700,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_images_close_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/images/close.png */ "./resources/js/components/assets/images/close.png");
 /* harmony import */ var _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/images/edit.png */ "./resources/js/components/assets/images/edit.png");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3795,7 +3774,7 @@ function Manager() {
   function updateEquipmentsTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getequipments',
+      url: "http://localhost:8000/api" + '/getequipments',
       headers: {
         'content-type': 'application/json'
       }
@@ -3808,7 +3787,7 @@ function Manager() {
   function deleteEqp(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deleteequipment',
+      url: "http://localhost:8000/api" + '/deleteequipment',
       headers: {
         'content-type': 'application/json'
       },
@@ -3827,7 +3806,7 @@ function Manager() {
   function deleteCustomer(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deletecustomer',
+      url: "http://localhost:8000/api" + '/deletecustomer',
       headers: {
         'content-type': 'application/json'
       },
@@ -3846,7 +3825,7 @@ function Manager() {
   function deletePickup(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deletepickup',
+      url: "http://localhost:8000/api" + '/deletepickup',
       headers: {
         'content-type': 'application/json'
       },
@@ -3865,7 +3844,7 @@ function Manager() {
   function deleteEmployee(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deleteemployee',
+      url: "http://localhost:8000/api" + '/deleteemployee',
       headers: {
         'content-type': 'application/json'
       },
@@ -3920,13 +3899,11 @@ function Manager() {
     if (equipment.addEquipment) {
       axios__WEBPACK_IMPORTED_MODULE_5___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/addequipment',
+        url: "http://localhost:8000/api" + '/addequipment',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: equipment
-        }
+        data: equipment
       }).then(function (result) {
         equipment.addEquipment = false;
         setEquipments(equipments);
@@ -3937,13 +3914,11 @@ function Manager() {
     if (equipment.editEquipment) {
       axios__WEBPACK_IMPORTED_MODULE_5___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/updateequipment',
+        url: "http://localhost:8000/api" + '/updateequipment',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: equipment
-        }
+        data: equipment
       }).then(function (result) {
         equipment.editEquipment = false;
         setEquipments(equipments);
@@ -3967,7 +3942,7 @@ function Manager() {
   function updateOrderTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getorders',
+      url: "http://localhost:8000/api" + '/getorders',
       headers: {
         'content-type': 'application/json'
       }
@@ -3979,7 +3954,7 @@ function Manager() {
   function updateEmployeeTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getemployees',
+      url: "http://localhost:8000/api" + '/getemployees',
       headers: {
         'content-type': 'application/json'
       }
@@ -3991,7 +3966,7 @@ function Manager() {
   function updatePickupTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getpickups',
+      url: "http://localhost:8000/api" + '/getpickups',
       headers: {
         'content-type': 'application/json'
       }
@@ -4003,7 +3978,7 @@ function Manager() {
   function updateCustomerTable() {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'get',
-      url: process.env.REACT_APP_API_PATH + '/getcustomers',
+      url: "http://localhost:8000/api" + '/getcustomers',
       headers: {
         'content-type': 'application/json'
       }
@@ -4016,7 +3991,7 @@ function Manager() {
   function deleteOrder(elementId) {
     axios__WEBPACK_IMPORTED_MODULE_5___default()({
       method: 'post',
-      url: process.env.REACT_APP_API_PATH + '/deleteorder',
+      url: "http://localhost:8000/api" + '/deleteorder',
       headers: {
         'content-type': 'application/json'
       },
@@ -4072,13 +4047,11 @@ function Manager() {
     if (order.addOrder) {
       axios__WEBPACK_IMPORTED_MODULE_5___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/addorder',
+        url: "http://localhost:8000/api" + '/addorder',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: order
-        }
+        data: order
       }).then(function (result) {
         order.addOrder = false;
         setOrders(orders);
@@ -4089,13 +4062,11 @@ function Manager() {
     if (order.editOrder) {
       axios__WEBPACK_IMPORTED_MODULE_5___default()({
         method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/updateorder',
+        url: "http://localhost:8000/api" + '/updateorder',
         headers: {
           'content-type': 'application/json'
         },
-        data: {
-          Data: order
-        }
+        data: order
       }).then(function (result) {
         order.editOrder = false;
         setOrders(orders);
@@ -5036,7 +5007,7 @@ function Login() {
     event.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_3___default()({
       method: 'post',
-      url: "localhost:8000/api" + '/authenticate',
+      url: "http://localhost:8000/api" + '/authenticate',
       headers: {
         'content-type': 'application/json'
       },
