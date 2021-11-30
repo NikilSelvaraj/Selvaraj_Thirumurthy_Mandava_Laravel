@@ -5574,44 +5574,131 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _chat_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chat.css */ "./resources/js/components/chat/chat.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _chat_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chat.css */ "./resources/js/components/chat/chat.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 
 
 function Chat() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  var userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
+  var nameInput = userInfo.First_Name;
+  var messageInput = document.getElementById("message");
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      messages = _useState2[0],
+      setMessages = _useState2[1];
+
+  var connection, connectingSpan;
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    updateMessages();
+    window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+    try {
+      connection = new WebSocket('ws://localhost:8080');
+    } catch (_unused) {
+      connection.onerror = function (error) {
+        connectingSpan.innerHTML = "Error occured";
+      };
+    }
+
+    connectingSpan = document.getElementById("connecting");
+
+    connection.onopen = function () {
+      connectingSpan.style.display = "none";
+    };
+
+    connection.onmessage = function () {
+      debugger;
+      updateMessages();
+    };
+  }, []);
+
+  function updateMessages() {
+    debugger;
+    axios__WEBPACK_IMPORTED_MODULE_0___default()({
+      method: 'get',
+      url: "http://localhost:8000/api" + '/getmessages',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(function (result) {
+      setMessages(result.data);
+      var element = document.getElementById('display_message');
+      element.scrollTop = element.scrollHeight - element.clientHeight;
+    })["catch"]();
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "chatbot",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       id: "chats",
       className: "info-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "font-oswald d-flex flex-direction-row w-100 justify-center sideNavHeader",
         children: "Chat"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "d-flex flex-direction-column chat-container",
         style: {
           height: "450px"
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           id: "display_message",
-          className: "display_message"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          className: "display_message",
+          children: messages.map(function (message) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "w-100 d-flex flex-direction-column",
+              style: {
+                alignItems: message.customer_id !== userInfo.ID ? 'flex-start' : 'flex-end'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "authorname",
+                style: {
+                  display: message.customer_id !== userInfo.ID ? 'd-block' : 'd-none'
+                },
+                children: message.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "d-block",
+                children: message.message
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
+            });
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          id: "connecting",
+          children: "Connecting to web sockets server..."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
           className: "d-flex flex-direction-column w-100 chat-area",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "d-flex flex-direction-row chatBox",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
               id: "message",
               className: "font-roboto",
               name: "message",
-              placeholder: "Enter your Message"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              placeholder: "Enter your Message",
+              onKeyUp: handleKeyUp,
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               className: "btn submit",
               type: "submit",
-              onClick: showMessage,
+              onClick: sendMessage,
               children: "Send"
             })]
           })
@@ -5620,11 +5707,31 @@ function Chat() {
     })
   });
 
-  function showMessage(event) {
-    // Displaying chat messages
-    event.preventDefault();
-    document.getElementById('display_message').innerHTML += "<p>".concat(document.getElementById("message").value, "</p></br>");
-    document.getElementById("message").value = '';
+  function handleKeyUp(e) {
+    if (e.keyCode === 13) {
+      sendMessage();
+    }
+  }
+
+  function sendMessage() {
+    var name = nameInput.trim();
+    var message = messageInput.value.trim();
+    if (!message) return alert("Please write a message");
+    axios__WEBPACK_IMPORTED_MODULE_0___default()({
+      method: 'post',
+      url: "http://localhost:8000/api" + '/postmessage',
+      headers: {
+        'content-type': 'application/json'
+      },
+      data: {
+        customer_id: userInfo.ID,
+        name: name,
+        message: message
+      }
+    }).then(function (result) {
+      updateMessages();
+    })["catch"](function (error) {});
+    messageInput.value = "";
   }
 }
 
@@ -21952,7 +22059,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".chatbot{\n    width: 100% !important;\n}\n.display_message {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  width: 100%;\n  max-height: 360px;\n  overflow-y: scroll;\n  flex: 3;\n  padding-right: 50px;\n}\n\n.display_message p {\n  order: 1px solid var(--secondary-bg-2);\n  padding: 10px;\n  border-radius: 15px;\n  background-color: white;\n  color: black;\n  width: -webkit-fit-content !important;\n  width: -moz-fit-content !important;\n  width: fit-content !important;\n}\n\n.chatBox {\n  height: 50px;\n  width: 100%;\n}\n\n.chatBox textarea,\n.chatBox button {\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  height: 50px;\n}\n\n.chatBox button {\n  justify-content: center;\n}\n\n.chat-area {\n  flex-direction: column-reverse;\n  align-items: flex-end;\n  flex: 1;\n  height: 50px;\n  max-height: 50px;\n}\n\n.user-dashboard-container {\n    height: calc(100vh - 195px);\n  }\n  \n\n  @media only screen and (max-device-width: 480px) {\n    .info-content .chat-container {\n      height: calc(100vh - 150px)  !important;\n    }\n    .display_message {\n      max-height: 100%;\n    }\n    .display_message p{\n      font-size: 35px;\n      border-radius: 20px;\n    }\n    .display_message textarea {\n      width: 100% !important;\n    }\n    .chatBox {\n      width: 100%;\n      transform: scale(1);\n    }\n    .clear:hover {\n      border-color: var(--state-danger);\n      color: var(--state-danger);\n  }\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".chatbot{\n    width: 100% !important;\n}\n.display_message {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  width: 100%;\n  max-height: 360px;\n  overflow-y: scroll;\n  flex: 3;\n  padding-right: 50px;\n}\n\n.display_message p.d-block{\n  order: 1px solid var(--secondary-bg-2);\n  margin:5px 10px;\n}\n\n.authorname{\n  color: #e5930f;\n    font-size: 16px;\n    font-weight: 600;\n}\n\n.chatBox {\n  height: 50px;\n  width: 100%;\n}\n\n.chatBox textarea,\n.chatBox button {\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  height: 50px;\n}\n\n.chatBox button {\n  justify-content: center;\n}\n\n.chat-area {\n  flex-direction: column-reverse;\n  align-items: flex-end;\n  flex: 1;\n  height: 50px;\n  max-height: 50px;\n}\n\n.user-dashboard-container {\n    height: calc(100vh - 195px);\n  }\n  \n\n  @media only screen and (max-device-width: 480px) {\n    .info-content .chat-container {\n      height: calc(100vh - 150px)  !important;\n    }\n    .display_message {\n      max-height: 100%;\n    }\n    .display_message p{\n      font-size: 35px;\n      border-radius: 20px;\n    }\n    .display_message textarea {\n      width: 100% !important;\n    }\n    .chatBox {\n      width: 100%;\n      transform: scale(1);\n    }\n    .clear:hover {\n      border-color: var(--state-danger);\n      color: var(--state-danger);\n  }\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22072,7 +22179,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n/*\n * All the Color Variables for ui elements will be defined in here \n*/\n\n:root {\n  /* Background colors */\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n\n  /* Label colors */\n\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n\n  /* State colors */\n  --state-danger: #c62828;\n  --state-danger-1: #b71c1c;\n  --state-danger-2: #ef5350;\n  --state-danger-3: #f44336;\n  --state-danger-light: #ffebee;\n\n  --state-warning: #f9a825;\n  --state-warning-1: #f57f17;\n  --state-warning-2: #fdd835;\n  --state-warning-3: #ffff00;\n  --state-warning-light: #fffde7;\n\n  --state-success: #558b2f;\n  --state-success-1: #33691e;\n  --state-success-2: #8bc34a;\n  --state-success-3: #b2ff59;\n  --state-success-light: #f1f8e9;\n}\n\n.font-oswald {\n  font-family: \"Oswald\", sans-serif;\n}\n\n.font-roboto {\n  font-family: \"Roboto\", sans-serif;\n}\n\n.font-damion {\n  font-family: 'Damion', cursive;\n}\n\n.d-flex {\n  display: flex;\n}\n\n.d-none {\n  display: none;\n}\n\n.d-block {\n  display: block;\n}\n\n.justify-between {\n  justify-content: space-between;\n}\n\n.justify-around {\n  justify-content: space-around;\n}\n\n.justify-center {\n  justify-content: center;\n}\n\n.justify-evenly {\n  justify-content: space-evenly;\n}\n\n.align-items-center {\n  align-items: center;\n}\n.align-items-between {\n  align-items: space-between;\n}\n.align-items-around {\n  align-items: space-around;\n}\n\n.align-items-start {\n  align-items: flex-start;\n}\n\n.flex-direction-row {\n  flex-direction: row;\n}\n\n.flex-direction-column {\n  flex-direction: column;\n}\n.w-100 {\n  width: 100%;\n}\n\n.h-100 {\n  height: 100%;\n}\n\n.btn {\n  background-color: inherit;\n  border-radius: 3px;\n  padding: 5px 10px;\n  border: 1px solid var(--secondary-bg-1);\n  color: var(--primary-label);\n}\n\nheader.nav-header {\n  width: 100%;\n  padding: 10px;\n  background-color: var(--primary-bg-1);\n  position: -webkit-sticky;\n  position: sticky; /* Set the navbar to fixed position */\n  top: 0;\n  z-index: 1000;\n}\n\n.navbar {\n  flex: 6;\n}\n\n.navbar ul {\n  list-style: none;\n  align-items: center;\n  height: 50px;\n  max-height: 50px;\n}\n\n.nav-Link {\n  padding: 10px;\n  border-radius: 4px;\n}\n\n.nav-Link:hover {\n  background-color: var(--primary-bg);\n  color: var(--primary-label);\n}\n\n.nav-item .nav-Link {\n  text-decoration: none;\n  color: var(--primary-label-1);\n  font-weight: 300;\n  letter-spacing: 1px;\n}\n\n.nav-item.active .nav-Link {\n  color: var(--primary-label) !important;\n  border: 1px solid var(--secondary-label-2);\n  border-radius: 4px;\n}\n\n.nav-item:hover {\n  transform: scale(1.1);\n}\n\n.header-title {\n  align-items: center;\n  flex: 2;\n  padding-left: 10px;\n  font-size: 25px;\n  font-weight: 400;\n  color: var(--secondary-label-2);\n  letter-spacing: 1px;\n}\n\n.search-control {\n  margin-bottom: 3px;\n}\n.search-control input {\n  height: 30px;\n  margin-right: 7px;\n}\n\n.search-control .btn {\n  height: 30px;\n  cursor: pointer;\n}\n\nfooter {\n  background-color: var(--primary-bg-1);\n  color: var(--primary-label-1);\n  min-height: 120px;\n  position: relative;\n  bottom: 0px;\n  margin-top: 30px;\n  padding-bottom: 35px;\n}\n\n.footer-links {\n  list-style: none;\n  width: 70%;\n}\n\n.footer-link-item a {\n  text-decoration: none;\n  color: var(--primary-label-1);\n  font-weight: 300;\n  letter-spacing: 1px;\n}\n\n.social-media-links {\n  width: 17%;\n  padding-top: 15px;\n}\n\n.social-media-links a img {\n  height: 35px;\n  width: 35px;\n}\n\n.text-header {\n  font-size: 35px;\n  font-weight: 400;\n  word-wrap: break-word;\n  color: white;\n}\n\n.poster .text-header {\n  color: var(--primary-label-2);\n}\n\n.text-description {\n  font-size: 18px;\n  font-weight: 400;\n  word-wrap: break-word;\n  text-align: justify;\n}\n\n.logo {\n  text-decoration: none;\n  color: var(--secondary-label-2) !important;\n}\n\n/* Fading animation */\n.fade {\n  -webkit-animation-name: fade;\n  -webkit-animation-duration: 1.5s;\n  animation-name: fade;\n  animation-duration: 1.5s;\n}\n\n@-webkit-keyframes fade {\n  from {opacity: .4}\n  to {opacity: 1}\n}\n\n@keyframes fade {\n  from {opacity: .4}\n  to {opacity: 1}\n}\n\nbody {\n  overflow-x: hidden;\n}\n\n.text-align-center {\n  text-align: center !important;\n}\n\n.cursor-pointer {\n  cursor: pointer;\n}\n\n\n.carousel-container {\n  margin-top: 30px;\n}\n\n.carousel {\n  margin: 20px;\n  width: 90%;\n  padding-left: 25px;\n  border-radius: 7px;\n  min-height: 300px;\n  box-shadow: 0 0 5px 0 rgba(156, 156, 156, 0.2);\n  position: relative;\n  left: 2.5%;\n  background: inherit;\n  color: var(--primary-label-1);\n  overflow: hidden;\n}\n\n.carousel::before{\n  margin: -20px;\n  border-radius: 7px;\n  content: \"\";\n  position: absolute;\n  background: inherit;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  box-shadow: inset 0 0 2000px rgba(124, 124, 124, 0.5);\n  filter: blur(10px);\n  z-index: -1;\n}\n\n.display_message{\n  display: flex;\n  flex-direction: column;\n    align-items: flex-end;\n    width: 89%;\n  max-height: 380px;\n  overflow-y: scroll;\n  flex: 3;\n  padding-right: 50px;\n}\n\n.display_message p {\n  order: 1px solid var(--secondary-bg-2);\n    padding: 10px;\n    border-radius: 15px;\n    background-color: white;\n    color: black;\n    width: -webkit-fit-content !important;\n    width: -moz-fit-content !important;\n    width: fit-content !important;\n}\n\n.chatBox {\n  height: 50px;\n  width: 70%;\n}\n\n.chatBox textarea,\n.chatBox button {\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  height: 50px;\n}\n\n.chatBox button {\n  justify-content: center;\n}\n\n.chat-area {\n  flex-direction: column-reverse;\n  align-items: flex-end;\n  flex: 1;\n  height: 50px;\n  max-height: 50px;\n}\n\n.user-dashboard-container {\n  height: calc(100vh - 195px);\n}\n\n.side-bar-navigation {\n  flex-direction: column;\n  height: calc(100vh - 50px);\n  position: absolute;\n  width: 280px;\n  background-color: var(--color-light);\n  box-shadow: 0px 0px 3px 2px var(--primary-label-1);\n  display: none;\n  z-index: 2000000;\n  top: 57px;\n}\n\n.side-bar-navigation ul {\n  display: flex;\n  flex-direction: column;\n  list-style: none;\n}\n\n.side-bar-navigation li {\n  font-size: 28px;\n  padding: 20px;\n  color: var(--primary-bg) !important;\n  font-family: 'Roboto', 'sans-seriff';\n  font-weight: 300;\n}\n\n.side-bar-navigation a {\n  color: var(--primary-bg) !important;\n}\n\n\n/* responsive css for all pages */\n@media only screen and (max-device-width: 480px){ \n  .nav-header {\n    display: none;\n  }\n\n  .menu-header {\n    display: flex !important;\n    height: 55px;\n    background-color: var(--primary-bg);\n  }\n\n  .menu-header img {\n    padding: 10px;\n  }\n\n  .header-title {\n    justify-content: flex-end;\n    font-size: 22px;\n    height: 45px;\n    padding: 5px;\n  }\n\n  .carousel-container{\n    position:relative;\n    right: 2%;\n  }\n}\n\n.flex-container {\n  color: var(--color-light);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n/*\n * All the Color Variables for ui elements will be defined in here \n*/\n\n:root {\n  /* Background colors */\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n\n  /* Label colors */\n\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n\n  /* State colors */\n  --state-danger: #c62828;\n  --state-danger-1: #b71c1c;\n  --state-danger-2: #ef5350;\n  --state-danger-3: #f44336;\n  --state-danger-light: #ffebee;\n\n  --state-warning: #f9a825;\n  --state-warning-1: #f57f17;\n  --state-warning-2: #fdd835;\n  --state-warning-3: #ffff00;\n  --state-warning-light: #fffde7;\n\n  --state-success: #558b2f;\n  --state-success-1: #33691e;\n  --state-success-2: #8bc34a;\n  --state-success-3: #b2ff59;\n  --state-success-light: #f1f8e9;\n}\n\n.font-oswald {\n  font-family: \"Oswald\", sans-serif;\n}\n\n.font-roboto {\n  font-family: \"Roboto\", sans-serif;\n}\n\n.font-damion {\n  font-family: 'Damion', cursive;\n}\n\n.d-flex {\n  display: flex;\n}\n\n.d-none {\n  display: none;\n}\n\n.d-block {\n  display: block;\n}\n\n.justify-between {\n  justify-content: space-between;\n}\n\n.justify-around {\n  justify-content: space-around;\n}\n\n.justify-center {\n  justify-content: center;\n}\n\n.justify-evenly {\n  justify-content: space-evenly;\n}\n\n.align-items-center {\n  align-items: center;\n}\n.align-items-between {\n  align-items: space-between;\n}\n.align-items-around {\n  align-items: space-around;\n}\n\n.align-items-start {\n  align-items: flex-start;\n}\n\n.flex-direction-row {\n  flex-direction: row;\n}\n\n.flex-direction-column {\n  flex-direction: column;\n}\n.w-100 {\n  width: 100%;\n}\n\n.h-100 {\n  height: 100%;\n}\n\n.btn {\n  background-color: inherit;\n  border-radius: 3px;\n  padding: 5px 10px;\n  border: 1px solid var(--secondary-bg-1);\n  color: var(--primary-label);\n}\n\nheader.nav-header {\n  width: 100%;\n  padding: 10px;\n  background-color: var(--primary-bg-1);\n  position: -webkit-sticky;\n  position: sticky; /* Set the navbar to fixed position */\n  top: 0;\n  z-index: 1000;\n}\n\n.navbar {\n  flex: 6;\n}\n\n.navbar ul {\n  list-style: none;\n  align-items: center;\n  height: 50px;\n  max-height: 50px;\n}\n\n.nav-Link {\n  padding: 10px;\n  border-radius: 4px;\n}\n\n.nav-Link:hover {\n  background-color: var(--primary-bg);\n  color: var(--primary-label);\n}\n\n.nav-item .nav-Link {\n  text-decoration: none;\n  color: var(--primary-label-1);\n  font-weight: 300;\n  letter-spacing: 1px;\n}\n\n.nav-item.active .nav-Link {\n  color: var(--primary-label) !important;\n  border: 1px solid var(--secondary-label-2);\n  border-radius: 4px;\n}\n\n.nav-item:hover {\n  transform: scale(1.1);\n}\n\n.header-title {\n  align-items: center;\n  flex: 2;\n  padding-left: 10px;\n  font-size: 25px;\n  font-weight: 400;\n  color: var(--secondary-label-2);\n  letter-spacing: 1px;\n}\n\n.search-control {\n  margin-bottom: 3px;\n}\n.search-control input {\n  height: 30px;\n  margin-right: 7px;\n}\n\n.search-control .btn {\n  height: 30px;\n  cursor: pointer;\n}\n\nfooter {\n  background-color: var(--primary-bg-1);\n  color: var(--primary-label-1);\n  min-height: 120px;\n  position: relative;\n  bottom: 0px;\n  margin-top: 30px;\n  padding-bottom: 35px;\n}\n\n.footer-links {\n  list-style: none;\n  width: 70%;\n}\n\n.footer-link-item a {\n  text-decoration: none;\n  color: var(--primary-label-1);\n  font-weight: 300;\n  letter-spacing: 1px;\n}\n\n.social-media-links {\n  width: 17%;\n  padding-top: 15px;\n}\n\n.social-media-links a img {\n  height: 35px;\n  width: 35px;\n}\n\n.text-header {\n  font-size: 35px;\n  font-weight: 400;\n  word-wrap: break-word;\n  color: white;\n}\n\n.poster .text-header {\n  color: var(--primary-label-2);\n}\n\n.text-description {\n  font-size: 18px;\n  font-weight: 400;\n  word-wrap: break-word;\n  text-align: justify;\n}\n\n.logo {\n  text-decoration: none;\n  color: var(--secondary-label-2) !important;\n}\n\n/* Fading animation */\n.fade {\n  -webkit-animation-name: fade;\n  -webkit-animation-duration: 1.5s;\n  animation-name: fade;\n  animation-duration: 1.5s;\n}\n\n@-webkit-keyframes fade {\n  from {opacity: .4}\n  to {opacity: 1}\n}\n\n@keyframes fade {\n  from {opacity: .4}\n  to {opacity: 1}\n}\n\nbody {\n  overflow-x: hidden;\n}\n\n.text-align-center {\n  text-align: center !important;\n}\n\n.cursor-pointer {\n  cursor: pointer;\n}\n\n\n.carousel-container {\n  margin-top: 30px;\n}\n\n.carousel {\n  margin: 20px;\n  width: 90%;\n  padding-left: 25px;\n  border-radius: 7px;\n  min-height: 300px;\n  box-shadow: 0 0 5px 0 rgba(156, 156, 156, 0.2);\n  position: relative;\n  left: 2.5%;\n  background: inherit;\n  color: var(--primary-label-1);\n  overflow: hidden;\n}\n\n.carousel::before{\n  margin: -20px;\n  border-radius: 7px;\n  content: \"\";\n  position: absolute;\n  background: inherit;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  box-shadow: inset 0 0 2000px rgba(124, 124, 124, 0.5);\n  filter: blur(10px);\n  z-index: -1;\n}\n\n\n\n.chatBox {\n  height: 50px;\n  width: 70%;\n}\n\n.chatBox textarea,\n.chatBox button {\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  height: 50px;\n}\n\n.chatBox button {\n  justify-content: center;\n}\n\n.chat-area {\n  flex-direction: column-reverse;\n  align-items: flex-end;\n  flex: 1;\n  height: 50px;\n  max-height: 50px;\n}\n\n.user-dashboard-container {\n  height: calc(100vh - 195px);\n}\n\n.side-bar-navigation {\n  flex-direction: column;\n  height: calc(100vh - 50px);\n  position: absolute;\n  width: 280px;\n  background-color: var(--color-light);\n  box-shadow: 0px 0px 3px 2px var(--primary-label-1);\n  display: none;\n  z-index: 2000000;\n  top: 57px;\n}\n\n.side-bar-navigation ul {\n  display: flex;\n  flex-direction: column;\n  list-style: none;\n}\n\n.side-bar-navigation li {\n  font-size: 28px;\n  padding: 20px;\n  color: var(--primary-bg) !important;\n  font-family: 'Roboto', 'sans-seriff';\n  font-weight: 300;\n}\n\n.side-bar-navigation a {\n  color: var(--primary-bg) !important;\n}\n\n\n/* responsive css for all pages */\n@media only screen and (max-device-width: 480px){ \n  .nav-header {\n    display: none;\n  }\n\n  .menu-header {\n    display: flex !important;\n    height: 55px;\n    background-color: var(--primary-bg);\n  }\n\n  .menu-header img {\n    padding: 10px;\n  }\n\n  .header-title {\n    justify-content: flex-end;\n    font-size: 22px;\n    height: 45px;\n    padding: 5px;\n  }\n\n  .carousel-container{\n    position:relative;\n    right: 2%;\n  }\n}\n\n.flex-container {\n  color: var(--color-light);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22192,7 +22299,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sideNav {\n    height: 130%;\n    width: 250px;\n    z-index: 1;\n    left: 0;\n    background-color: var(--primary-bg-1);\n    overflow-x: hidden;\n    padding-top: 20px;\n  }\n  \n  .sideNav ul {\n    list-style: none;\n    align-items: center;\n  }\n  \n  .sideNavItem {\n    color: var(--primary-label-1);\n    font-weight: 300;\n    letter-spacing: 1px;\n    margin-bottom: 20px;\n  }\n  .sideNavItem a {\n    color: var(--primary-label-1);\n    text-decoration: none;\n  }\n  .sideNavItem.active .sideNav-link {\n    color: var(--primary-label) !important;\n    border-bottom: 4px solid var(--secondary-label-2);\n    border-radius: 4px;\n  }\n  \n  .sideNavItem:hover {\n    transform: scale(1.1);\n  }\n  \n  .sideNavHeader {\n    height: 50px;\n    color: var(--primary-bg-1);\n    font-size: 26px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n    padding: 25px 0px;\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sideNav {\n    height: 100%;\n    width: 250px;\n    z-index: 1;\n    left: 0;\n    background-color: var(--primary-bg-1);\n    overflow-x: hidden;\n    padding-top: 20px;\n  }\n  \n  .sideNav ul {\n    list-style: none;\n    align-items: center;\n  }\n  \n  .sideNavItem {\n    color: var(--primary-label-1);\n    font-weight: 300;\n    letter-spacing: 1px;\n    margin-bottom: 20px;\n  }\n  .sideNavItem a {\n    color: var(--primary-label-1);\n    text-decoration: none;\n  }\n  .sideNavItem.active .sideNav-link {\n    color: var(--primary-label) !important;\n    border-bottom: 4px solid var(--secondary-label-2);\n    border-radius: 4px;\n  }\n  \n  .sideNavItem:hover {\n    transform: scale(1.1);\n  }\n  \n  .sideNavHeader {\n    height: 50px;\n    color: var(--primary-bg-1);\n    font-size: 26px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n    padding: 25px 0px;\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22240,7 +22347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media only screen and (max-device-width: 480px){\n    .sideNavHeader {\n        font-size: 25px !important;\n      }\n      .sideNav {\n        width:  57% !important;\n        font-size: 12px !important;\n        height: 140%!important  ;\n      }\n      \n\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media only screen and (max-device-width: 480px){\n    .sideNavHeader {\n        font-size: 25px !important;\n      }\n      .sideNav {\n        width:  57% !important;\n        font-size: 12px !important;\n        height: 100%!important  ;\n      }\n      \n\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

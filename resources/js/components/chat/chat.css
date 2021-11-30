@@ -12,13 +12,15 @@
   padding-right: 50px;
 }
 
-.display_message p {
+.display_message p.d-block{
   order: 1px solid var(--secondary-bg-2);
-  padding: 10px;
-  border-radius: 15px;
-  background-color: white;
-  color: black;
-  width: fit-content !important;
+  margin:5px 10px;
+}
+
+.authorname{
+  color: #e5930f;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .chatBox {

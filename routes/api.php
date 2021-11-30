@@ -13,6 +13,7 @@ use App\Http\Controllers\PickupController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\RegisterIncident;
 use App\Http\Controllers\ScheduleDropController;
+use App\Http\Controllers\ChatController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -51,8 +52,9 @@ Route::post('/updateorder',[OrderController::class,'updateExistingOrder']);
 Route::post('/updateequipment',[EquipmentController::class,'updateExistingEquipment']);
 Route::post('/updateschedule',[ScheduleDropController::class,'updateExistingSchedule']);
 
-
-
-
 Route::post('/contactus',[ContactUsController::class,'contactUs']);
 Route::post('/registerIncident',[RegisterIncident::class,'registerIncident']);
+
+
+Route::get('/getmessages',[ChatController::class,'getAllMessages']);
+Route::post('/postmessage',[ChatController::class,'postmessage']);
