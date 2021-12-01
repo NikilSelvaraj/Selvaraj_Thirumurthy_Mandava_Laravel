@@ -26,6 +26,14 @@ function Manager() {
         updatePickupTable();
         populateTables();
     }, []);
+
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
     function updateEquipmentsTable() {
         axios({
             method: 'get',
