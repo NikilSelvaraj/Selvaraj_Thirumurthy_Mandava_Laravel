@@ -2168,9 +2168,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_images_tick_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/images/tick.png */ "./resources/js/components/assets/images/tick.png");
 /* harmony import */ var _assets_images_close_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/images/close.png */ "./resources/js/components/assets/images/close.png");
 /* harmony import */ var _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/images/edit.png */ "./resources/js/components/assets/images/edit.png");
-/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-chartjs-2 */ "./node_modules/react-chartjs-2/dist/index.modern.js");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-chartjs-2 */ "./node_modules/react-chartjs-2/dist/index.modern.js");
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _chat_chat__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../chat/chat */ "./resources/js/components/chat/chat.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2190,6 +2191,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -2286,6 +2288,15 @@ function Admin() {
     updatePickupTable();
     (0,_administration__WEBPACK_IMPORTED_MODULE_4__.populateTables)();
   }, []);
+
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     populateCharts();
   }, [customers, equipments, orders]);
@@ -2725,62 +2736,62 @@ function Admin() {
     pills[slideIndex - 1].className += " active";
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("section", {
     className: "administration-bg hide-section",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
       className: "container",
       id: "heading-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
         className: "font-oswald heading",
         children: " Instawash Admin "
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
       id: "graph-view",
       className: "graph-view d-flex flex-direction-column w-100",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
         className: "d-flex w-100 number-container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "number-card font-oswald",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             children: "Total No of users:"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-roboto",
             children: noOfCustomer
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "number-card font-oswald",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             children: "Active users:"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-roboto",
             children: noOfAcCustomer
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "number-card font-oswald",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             children: "Total No of employees:"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-roboto",
             children: "18"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "number-card font-oswald",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             children: "No of Equipments available:"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-roboto",
             children: noOfEquipments
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
         className: "carousel-container admin-container d-flex flex-direction-column align-items-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
           className: "slides fade w-100",
           style: {
             height: "450px",
             width: "900px"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_13__.Bar, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_14__.Bar, {
             data: chart1,
             options: {
               responsive: true,
@@ -2790,13 +2801,13 @@ function Admin() {
               }
             }
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
           className: "slides fade w-100",
           style: {
             height: "450px",
             width: "900px"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_13__.Line, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_14__.Line, {
             data: chart2,
             options: {
               responsive: true,
@@ -2806,13 +2817,13 @@ function Admin() {
               }
             }
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
           className: "slides fade w-100",
           style: {
             height: "450px",
             width: "900px"
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_13__.Line, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_14__.Line, {
             data: chart3,
             options: {
               responsive: true,
@@ -2822,19 +2833,19 @@ function Admin() {
               }
             }
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "pill-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "pills",
             onClick: function onClick() {
               return currentSlide(1);
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "pills",
             onClick: function onClick() {
               return currentSlide(2);
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "pills",
             onClick: function onClick() {
               return currentSlide(3);
@@ -2842,41 +2853,41 @@ function Admin() {
           })]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
       className: "manage-container d-flex flex-direction-column align-items-around justify-evenly",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
         className: "d-flex flex-direction-row justify-around section-container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "d-flex flex-direction-column align-items-start section-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-oswald section-header",
             children: "Manage Order"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "table-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("table", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("table", {
               id: "order-table",
               className: "material-table",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tbody", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tbody", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Order ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Customer ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "First Name"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Last Name"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Phone Number"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Email"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Items"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Service Type"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     className: "text-align-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                       className: "cursor-pointer",
                       title: "Add Record",
                       onClick: function onClick() {
@@ -2889,11 +2900,11 @@ function Admin() {
                     })
                   })]
                 }), orders.map(function (order) {
-                  if (order.editOrder || order.addOrder) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  if (order.editOrder || order.addOrder) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Order_ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "number",
                         id: "customerId",
                         className: "font-roboto",
@@ -2905,8 +2916,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "text",
                         id: "fname",
                         name: "First_Name",
@@ -2918,8 +2929,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "text",
                         id: "lane",
                         name: "Last_Name",
@@ -2931,8 +2942,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "number",
                         id: "Phonenumber",
                         className: "font-roboto",
@@ -2944,8 +2955,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "text",
                         id: "Email",
                         className: "font-roboto",
@@ -2957,8 +2968,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "number",
                         id: "noOfItems",
                         name: "items",
@@ -2969,8 +2980,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("select", {
                         name: "Service",
                         id: "service",
                         className: "font-roboto",
@@ -2979,30 +2990,30 @@ function Admin() {
                           return handleOrdChange(event, order);
                         },
                         required: true,
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Washing",
                           children: "Washing"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Drying",
                           children: "Drying"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Ironing",
                           children: "Ironing"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "CompleteLaundryService",
                           children: "Complete Laundry Service (Washing+Drying+Ironing)"
                         })]
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_tick_png__WEBPACK_IMPORTED_MODULE_8__["default"],
                           onClick: function onClick() {
                             return addOrEditOrder(order);
                           },
                           title: "Confirm"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_close_png__WEBPACK_IMPORTED_MODULE_9__["default"],
                           onClick: function onClick() {
                             return order.editOrder = false;
@@ -3011,33 +3022,33 @@ function Admin() {
                         })]
                       })
                     })]
-                  });else return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  });else return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Order_ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Customer_ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.First_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Last_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Phonenumber
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Email
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.items
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: order.Service
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_10__["default"],
                           onClick: function onClick() {
                             return editOrderColumn(order);
                           },
                           title: "edit"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_delete_png__WEBPACK_IMPORTED_MODULE_7__["default"],
                           onClick: function onClick() {
                             return deleteOrder(order.Order_ID);
@@ -3051,35 +3062,35 @@ function Admin() {
               })
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "d-flex flex-direction-column align-items-start section-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-oswald section-header",
             children: "Manage Equipment"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "table-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("table", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("table", {
               id: "equipment-table",
               className: "material-table",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tbody", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tbody", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Equipment Type"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Model No"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Brand Name"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Load Capacity"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Status"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Order ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     className: "text-align-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                       className: "cursor-pointer",
                       title: "Add Record",
                       onClick: function onClick() {
@@ -3092,11 +3103,11 @@ function Admin() {
                     })
                   })]
                 }), equipments.map(function (equipment) {
-                  if (equipment.editEquipment || equipment.addEquipment) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  if (equipment.editEquipment || equipment.addEquipment) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("select", {
                         name: "Equipment_Type",
                         id: "equipmentType",
                         className: "font-roboto",
@@ -3105,25 +3116,25 @@ function Admin() {
                           return handleEqpChange(event, equipment);
                         },
                         required: true,
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Washing Machine",
                           children: "Washing Machine"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Dryer",
                           children: "Dryer"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Iron Box",
                           children: "Iron Box"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Weights",
                           children: "Weights"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Basket",
                           children: "Basket"
                         })]
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "text",
                         id: "modelNo",
                         name: "Model_No",
@@ -3135,8 +3146,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "text",
                         id: "brandName",
                         name: "Brand_Name",
@@ -3148,8 +3159,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "number",
                         id: "loadCapacity",
                         className: "font-roboto",
@@ -3161,8 +3172,8 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("select", {
                         name: "Status",
                         id: "status",
                         className: "font-roboto",
@@ -3171,16 +3182,16 @@ function Admin() {
                           return handleEqpChange(event, equipment);
                         },
                         required: true,
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "Available",
                           children: "Available"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                           value: "InUse",
                           children: "In Use"
                         })]
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
                         type: "number",
                         id: "orderid",
                         name: "Order_ID",
@@ -3191,16 +3202,16 @@ function Admin() {
                         },
                         required: true
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_tick_png__WEBPACK_IMPORTED_MODULE_8__["default"],
                           onClick: function onClick() {
                             return addOrEditEquipment(equipment);
                           },
                           title: "Confirm"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_close_png__WEBPACK_IMPORTED_MODULE_9__["default"],
                           onClick: function onClick() {
                             return equipment.editEquipment = false;
@@ -3209,31 +3220,31 @@ function Admin() {
                         })]
                       })
                     })]
-                  });else return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  });else return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.Equipment_Type
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.Model_No
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.Brand_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.Load_Capacity
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.Status
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: equipment.Order_ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_10__["default"],
                           onClick: function onClick() {
                             return editEquipmentColumn(equipment);
                           },
                           title: "edit"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_delete_png__WEBPACK_IMPORTED_MODULE_7__["default"],
                           onClick: function onClick() {
                             return deleteEqp(equipment.ID);
@@ -3248,37 +3259,37 @@ function Admin() {
             })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
         className: "d-flex flex-direction-row justify-around section-container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "d-flex flex-direction-column align-items-start section-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-oswald section-header",
             children: "Manage Customers"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "table-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("table", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("table", {
               id: "customer-table",
               className: "material-table",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tbody", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tbody", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "First Nmae"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Last Name"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Email"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Created Date"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "User Type"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Address"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     className: "text-align-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                       className: "cursor-pointer",
                       title: "Add Record",
                       onClick: function onClick() {},
@@ -3289,29 +3300,29 @@ function Admin() {
                     })
                   })]
                 }), customers.map(function (customer) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: customer.ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: customer.First_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: customer.Last_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: customer.Email
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: customer.Created_Date
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: customer.User_Type
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: ''
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_10__["default"],
                           onClick: function onClick() {},
                           title: "edit"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_delete_png__WEBPACK_IMPORTED_MODULE_7__["default"],
                           onClick: function onClick() {
                             return deleteCustomer(customer.ID);
@@ -3325,39 +3336,39 @@ function Admin() {
               })
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "d-flex flex-direction-column align-items-start section-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-oswald section-header",
             children: "Manage Pickup / Delivery"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "table-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("table", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("table", {
               id: "pickup-table",
               className: "material-table",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tbody", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tbody", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "First Nmae"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Last Name"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Email"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Phone Number"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Subscription"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Plan"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Day"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Address"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     className: "text-align-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                       className: "cursor-pointer",
                       title: "Add Record",
                       onClick: function onClick() {},
@@ -3368,33 +3379,33 @@ function Admin() {
                     })
                   })]
                 }), pickup.map(function (pickup) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.First_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.Last_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.Email
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.Phonenumber
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.subscribe
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.plan
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.day
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: pickup.address
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_10__["default"],
                           onClick: function onClick() {},
                           title: "edit"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_delete_png__WEBPACK_IMPORTED_MODULE_7__["default"],
                           onClick: function onClick() {
                             return deletePickup(pickup.ID);
@@ -3409,38 +3420,38 @@ function Admin() {
             })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
         className: "d-flex flex-direction-row justify-around section-container",
         id: "employee-table-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "d-flex flex-direction-column align-items-start section-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
             className: "font-oswald section-header",
             children: "Manage Managers"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "table-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("table", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("table", {
               id: "employee-table",
               className: "material-table",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tbody", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tbody", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "ID"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "First Nmae"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Last Name"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Email"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Created Date"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "User Type"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     children: "Address"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
                     className: "text-align-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                       className: "cursor-pointer",
                       title: "Add Record",
                       onClick: function onClick() {},
@@ -3451,29 +3462,29 @@ function Admin() {
                     })
                   })]
                 }), manager.map(function (man) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: man.ID
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: man.First_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: man.Last_Name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: man.Email
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: man.Created_Date
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: man.User_Type
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
                       children: ''
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
                         className: "action-icons",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_edit_png__WEBPACK_IMPORTED_MODULE_10__["default"],
                           onClick: function onClick() {},
                           title: "edit"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                           src: _assets_images_delete_png__WEBPACK_IMPORTED_MODULE_7__["default"],
                           onClick: function onClick() {
                             return deleteManager(man.ID);
@@ -3489,6 +3500,29 @@ function Admin() {
           })]
         })
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+      "class": "open-button",
+      onClick: openForm,
+      children: "Chat"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+      "class": "chat-popup",
+      id: "myForm",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("form", {
+        "class": "form-container",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("h1", {
+          children: "Chat"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("label", {
+          "for": "msg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("b", {
+            children: "Message"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_chat_chat__WEBPACK_IMPORTED_MODULE_12__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+          type: "button",
+          "class": "btn cancel",
+          onClick: closeForm,
+          children: "Close"
+        })]
+      })
     })]
   });
 }
@@ -5693,8 +5727,7 @@ function Chat() {
               className: "font-roboto",
               name: "message",
               placeholder: "Enter your Message",
-              onKeyUp: handleKeyUp,
-              required: true
+              onKeyUp: handleKeyUp
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               className: "btn submit",
               type: "submit",
@@ -8614,42 +8647,6 @@ function User() {
 
 /***/ }),
 
-/***/ "./resources/js/components/visitor/visitor.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/visitor/visitor.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _visitorSideMenuBar_visitorsidemenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../visitorSideMenuBar/visitorsidemenu */ "./resources/js/components/visitorSideMenuBar/visitorsidemenu.js");
-/* harmony import */ var _session_session__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../session/session */ "./resources/js/components/session/session.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-function Visitor() {
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    (0,_session_session__WEBPACK_IMPORTED_MODULE_2__["default"])('Visitor');
-    document.getElementsByClassName('nav-item active')[0].classList.remove('active');
-    document.getElementById('authenticationTab').classList.add('active');
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
-    className: "visitor-page hide-section",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_visitorSideMenuBar_visitorsidemenu__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-  });
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Visitor);
-
-/***/ }),
-
 /***/ "./resources/js/components/visitorSideMenuBar/visitorsidemenu.js":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/visitorSideMenuBar/visitorsidemenu.js ***!
@@ -8762,6 +8759,42 @@ function Visitorsidemenu() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Visitorsidemenu);
+
+/***/ }),
+
+/***/ "./resources/js/components/visitor/visitor.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/visitor/visitor.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _visitorSideMenuBar_visitorsidemenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../visitorSideMenuBar/visitorsidemenu */ "./resources/js/components/visitorSideMenuBar/visitorsidemenu.js");
+/* harmony import */ var _session_session__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../session/session */ "./resources/js/components/session/session.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function Visitor() {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    (0,_session_session__WEBPACK_IMPORTED_MODULE_2__["default"])('Visitor');
+    document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+    document.getElementById('authenticationTab').classList.add('active');
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
+    className: "visitor-page hide-section",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_visitorSideMenuBar_visitorsidemenu__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Visitor);
 
 /***/ }),
 
@@ -21954,7 +21987,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".headings {\n    display: inline-grid;\n    text-align: left;\n    padding: 30px;\n    padding-left: 0px !important;\n    color: var(--primary-label-1);\n    font-size: 50px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n    margin-left: 10%;\n    padding-bottom: 0px;\n  }\n  .learn-btn {\n    background-color: inherit;\n    border-radius: 3px;\n    padding: 5px 10px;\n    border: 1px solid var(--secondary-bg-1);\n    color: var(--primary-label);\n    width: 20%;\n    height: 50%;\n    margin-bottom: 5%;\n    cursor: pointer;\n    font-size: 1em;\n  }\n  .learn-btn:hover {\n    background-color: var(--secondary-bg-1);\n    border-radius: 3px;\n    padding: 5px 10px;\n    border: 1px solid var(--secondary-bg-1);\n    color: var(--primary-label);\n    width: 20%;\n    height: 50%;\n    margin-bottom: 5%;\n    cursor: pointer;\n    font-size: 1em;\n  }\n  .side-Heading{\n      color: var(--primary-bg);\n      margin-left: 14%;\n  }\n  .about-content{\n      width: 70%;\n      margin: auto;\n      height: auto;\n      border: 0.5px solid lightgrey;\n      border-radius: 2px;\n      margin-bottom: 10%;\n      color: black;\n      padding: 5%;\n  }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".headings {\r\n    display: inline-grid;\r\n    text-align: left;\r\n    padding: 30px;\r\n    padding-left: 0px !important;\r\n    color: var(--primary-label-1);\r\n    font-size: 50px !important;\r\n    font-weight: 300;\r\n    letter-spacing: 1px;\r\n    margin-left: 10%;\r\n    padding-bottom: 0px;\r\n  }\r\n  .learn-btn {\r\n    background-color: inherit;\r\n    border-radius: 3px;\r\n    padding: 5px 10px;\r\n    border: 1px solid var(--secondary-bg-1);\r\n    color: var(--primary-label);\r\n    width: 20%;\r\n    height: 50%;\r\n    margin-bottom: 5%;\r\n    cursor: pointer;\r\n    font-size: 1em;\r\n  }\r\n  .learn-btn:hover {\r\n    background-color: var(--secondary-bg-1);\r\n    border-radius: 3px;\r\n    padding: 5px 10px;\r\n    border: 1px solid var(--secondary-bg-1);\r\n    color: var(--primary-label);\r\n    width: 20%;\r\n    height: 50%;\r\n    margin-bottom: 5%;\r\n    cursor: pointer;\r\n    font-size: 1em;\r\n  }\r\n  .side-Heading{\r\n      color: var(--primary-bg);\r\n      margin-left: 14%;\r\n  }\r\n  .about-content{\r\n      width: 70%;\r\n      margin: auto;\r\n      height: auto;\r\n      border: 0.5px solid lightgrey;\r\n      border-radius: 2px;\r\n      margin-bottom: 10%;\r\n      color: black;\r\n      padding: 5%;\r\n  }\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21987,7 +22020,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_edit_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_images_delete_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\n\n/* COLOR USED :\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n  --state-danger: #c62828;\n  --state-warning: #f9a825;\n  --state-success: #558b2f;\n*/\nbody {\n    /* use the font */\n    font-family: \"Roboto\", sans-serif;\n    color: var(--primary-bg);\n    margin: 0;\n    background-attachment: fixed;\n  }\n  \n  /* manager and admin page container styles */\n  .container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 100%;\n    padding: 30px;\n    color: var(--primary-label-1);\n    font-size: 30px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n    background-color: var(--primary-bg-1);\n  }\n  \n  .section-header {\n    font-family: \"Roboto\", \"sans-serif\";\n    font-size: 24px;\n    font-weight: 300px;\n    letter-spacing: 1px;\n  }\n  \n  .section-container {\n    margin-bottom: 40px;\n  }\n  \n  .section-content {\n    flex: 1;\n    margin-right: 30px;\n    width: 48%;\n  }\n  \n  .manage-container {\n    width: 100%;\n    height: 100%;\n    padding: 40px 0px 40px 40px;\n  }\n  \n  /* Table styles */\n  .material-table {\n    min-height: 400px;\n    box-shadow: 0px 0px 3px 3px rgba(156, 156, 156, 0.2);\n    width: 100%;\n    border-spacing: 0px;\n    height: 400px;\n    max-height: 420px;\n    overflow: scroll;\n    /* border:1px solid var(--primary-label-1) */\n  }\n  \n  .table-container {\n    max-height: 420px;\n    height: 400px;\n    overflow: scroll;\n    width: 95%;\n    margin-top: 20px;\n  }\n  .material-table tr {\n    height: 40px;\n    max-height: 40px;\n    border-bottom: 1px solid var(--primary-bg);\n    padding-left: 25px;\n  }\n  \n  .material-table tr:first-child {\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0;\n    background-color: #464646 !important;\n    color: white !important;\n  }\n  \n  .material-table tr:nth-child(odd) {\n    background-color: #d9d8d8;\n    color: var(--primary-bg-1);\n  }\n  \n  .material-table td:first-child,\n  .material-table th:first-child {\n    padding-left: 25px !important;\n  }\n  \n  .material-table td,\n  .material-table th {\n    text-align: left;\n    padding: 10px;\n    border-collapse: collapse;\n  }\n  \n  .material-table td {\n    font-size: 18px;\n    font-weight: 400;\n    color: var(--primary-label-2);\n  }\n  \n  .material-table th {\n    font-size: 18px;\n    font-weight: 300;\n  }\n  \n  .material-table td:last-child {\n    width: 70px;\n    min-width: 70px;\n  }\n  \n  .material-table td input {\n    width: 100px;\n    padding: 12px;\n    font: \"Roboto\", \"sans-serfiff\";\n    border-radius: 5px;\n    border: 1px solid var(--primary-bg-3);\n  }\n  \n  /* styles for edit delete and add actions in table */\n  .action-icons img {\n    height: 25px;\n    width: 25px;\n    cursor: pointer;\n  }\n  \n  /* Manual order section styles */\n  .order-container {\n    padding: 20px 20px 20px 0px;\n  }\n  \n  .order-container div:first-child {\n    margin-right: 50px;\n  }\n  \n  .order-container input {\n    height: 30px;\n    padding: 5px;\n    margin-bottom: 25px;\n    border-radius: 3px;\n    border: 1px solid var(--primary-bg-3);\n  }\n  \n  .order-container select {\n    padding: 5px;\n    height: 40px;\n    width: 255px;\n    border-radius: 3px;\n    border: 1px solid var(--primary-bg-3);\n  }\n  \n  .order-container label {\n    margin-bottom: 10px;\n  }\n  \n  .btn.submit-order {\n    color: var(--secondary-bg-1);\n    border-color: var(--secondary-bg-1);\n    border-radius: 17px;\n    height: 35px !important;\n  }\n  \n  /* Admin page graph and stats section styles */\n  \n  .graph-view {\n    height: 800px;\n    padding: 10px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n  }\n  \n  .graph-view .carousel-container {\n    border: 1px solid var(--primary-bg-3);\n    box-shadow: 0px 0px 3px 0px var(--primary-bg-3);\n  }\n  \n  .graph-view img{\n    height: 300px;\n    width: 90%;\n  }\n  \n  .number-card {\n    width: 70%;\n    margin-right: 70px;\n    height: 100px;\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n    border: 1px solid var(--primary-bg-3);\n    box-shadow: 0px 0px 2px 0px var(--primary-bg-3);\n  }\n  \n  .number-container {\n    margin-left: 65px;\n    margin-top: 10px;\n  }\n  \n  .slides {\n    display: flex;\n    justify-content: center;\n  }\n  \n  .pill-container {\n    width: 100%;\n    display: flex;\n    justify-content: center;\n  }\n  \n  .pill-container .pills {\n    height: 10px;\n    width: 20px;\n    border: 1px solid var(--secondary-bg);\n    border-radius: 15px;\n    margin-right: 8px;\n    margin-top: 20px;\n    cursor: pointer;\n  }\n  \n  .admin-container .pill-container .pills.active {\n    background-color: var(--primary-bg) !important;\n    border-color: var(--primary-bg) !important;\n  }\n\n  .pills:hover {\n    border-color: var(--secondary-label-1) !important;\n  }\n  \n  .carousel-container {\n    width: 90%;\n    padding: 25px;\n  }\n  \n  .number-card span:first-child {\n    font-size: 26px;\n    font-weight: 300;\n    padding-bottom: 20px;\n  }\n  \n  /* responsive css for manager and admin page */\n  @media only screen and (max-device-width: 480px) {\n    .container, .section-header{\n      font-size: 24px !important;\n    }\n\n    .section-container {\n      flex-direction: column !important;\n      margin-bottom: 30px;\n    }\n  \n    .section-content {\n      width: 100% !important;\n      margin-bottom: 30px;\n    }\n  \n    .graph-view {\n        height: 1000px !important;\n        max-height: unset !important;\n        margin-bottom: 20px;\n    }\n\n    .graph-view img {\n      width: 80%;  \n    }\n\n    .number-card {\n        height: 200px !important;\n        margin-top: 70px;\n        width: 33%;\n        margin-right: 10px;\n    }\n    .number-card span:first-child {\n        font-size: 24px;\n    }\n  \n    .number-card span:last-child {\n      font-size: 30px;\n    }\n    .number-container {\n        flex-wrap: wrap;\n        margin-left: 10px;\n    }\n  \n    .btn.submit-order {\n        height: 48px  !important;\n    }\n  \n    body {\n        overflow-x: hidden;\n    }\n\n    .manage-container{\n      padding: 10px !important;\n    }\n\n    .order-container{\n      flex-direction: column !important;\n    }\n\n    .order-container select{\n      margin-bottom: 15px;\n    }\n\n    .carousel-container{\n      width: 80%;\n    }\n  }\n\n  .section-header {\n    font-family: \"Oswald\", sans-serif;\n    font-weight: 300 !important;\n  }\n\n  .administration-bg {\n    background-color: var(--color-light);\n    overflow-x: clip;\n  }\n\n  .cursor-pointer {\n    cursor: pointer;\n  }\n\n  .edit-icon img:first-child{\n    content:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") !important;\n    height: 25px;\n    width: 25px;\n    cursor: pointer;\n  }\n  .action-icons img:first-child {\n    content:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  }\n  .action-icons img:last-child {\n    content:url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  }\n\n  .action-icons img{\n    width: 25px;\n    height: 25px;\n  }\n  ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*  \r\nThirumurthy,Sujitraj , UTA ID : 1001830297 \r\nSelvaraj, Nikil Nandha, UTA ID : 1002004184\r\nMandava, Sai Venkat, UTA: 1001955604\r\n*/\r\n\r\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\r\n\r\n/* COLOR USED :\r\n  --primary-bg: #2c2c2c;\r\n  --primary-bg-1: #252525;\r\n  --primary-bg-2: #757575;\r\n  --primary-bg-3: #9e9e9e;\r\n  --secondary-bg: #03a9f4;\r\n  --secondary-bg-1: #01579b;\r\n  --secondary-bg-2: #40c4ff;\r\n  --secondary-bg-3: #b3e5fc;\r\n  --color-light: #ffffff;\r\n  --primary-label: #fafafa;\r\n  --primary-label-1: #cccaca;\r\n  --primary-label-2: #616161;\r\n  --secondary-label: #e1f5fe;\r\n  --secondary-label-1: #80d8ff;\r\n  --secondary-label-2: #039be5;\r\n  --state-danger: #c62828;\r\n  --state-warning: #f9a825;\r\n  --state-success: #558b2f;\r\n*/\r\nbody {\r\n    /* use the font */\r\n    font-family: \"Roboto\", sans-serif;\r\n    color: var(--primary-bg);\r\n    margin: 0;\r\n    background-attachment: fixed;\r\n  }\r\n  \r\n  /* manager and admin page container styles */\r\n  .container {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    width: 100%;\r\n    padding: 30px;\r\n    color: var(--primary-label-1);\r\n    font-size: 30px !important;\r\n    font-weight: 300;\r\n    letter-spacing: 1px;\r\n    background-color: var(--primary-bg-1);\r\n  }\r\n  \r\n  .section-header {\r\n    font-family: \"Roboto\", \"sans-serif\";\r\n    font-size: 24px;\r\n    font-weight: 300px;\r\n    letter-spacing: 1px;\r\n  }\r\n  \r\n  .section-container {\r\n    margin-bottom: 40px;\r\n  }\r\n  \r\n  .section-content {\r\n    flex: 1;\r\n    margin-right: 30px;\r\n    width: 48%;\r\n  }\r\n  \r\n  .manage-container {\r\n    width: 100%;\r\n    height: 100%;\r\n    padding: 40px 0px 40px 40px;\r\n  }\r\n  \r\n  /* Table styles */\r\n  .material-table {\r\n    min-height: 400px;\r\n    box-shadow: 0px 0px 3px 3px rgba(156, 156, 156, 0.2);\r\n    width: 100%;\r\n    border-spacing: 0px;\r\n    height: 400px;\r\n    max-height: 420px;\r\n    overflow: scroll;\r\n    /* border:1px solid var(--primary-label-1) */\r\n  }\r\n  \r\n  .table-container {\r\n    max-height: 420px;\r\n    height: 400px;\r\n    overflow: scroll;\r\n    width: 95%;\r\n    margin-top: 20px;\r\n  }\r\n  .material-table tr {\r\n    height: 40px;\r\n    max-height: 40px;\r\n    border-bottom: 1px solid var(--primary-bg);\r\n    padding-left: 25px;\r\n  }\r\n  \r\n  .material-table tr:first-child {\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 0;\r\n    background-color: #464646 !important;\r\n    color: white !important;\r\n  }\r\n  \r\n  .material-table tr:nth-child(odd) {\r\n    background-color: #d9d8d8;\r\n    color: var(--primary-bg-1);\r\n  }\r\n  \r\n  .material-table td:first-child,\r\n  .material-table th:first-child {\r\n    padding-left: 25px !important;\r\n  }\r\n  \r\n  .material-table td,\r\n  .material-table th {\r\n    text-align: left;\r\n    padding: 10px;\r\n    border-collapse: collapse;\r\n  }\r\n  \r\n  .material-table td {\r\n    font-size: 18px;\r\n    font-weight: 400;\r\n    color: var(--primary-label-2);\r\n  }\r\n  \r\n  .material-table th {\r\n    font-size: 18px;\r\n    font-weight: 300;\r\n  }\r\n  \r\n  .material-table td:last-child {\r\n    width: 70px;\r\n    min-width: 70px;\r\n  }\r\n  \r\n  .material-table td input {\r\n    width: 100px;\r\n    padding: 12px;\r\n    font: \"Roboto\", \"sans-serfiff\";\r\n    border-radius: 5px;\r\n    border: 1px solid var(--primary-bg-3);\r\n  }\r\n  \r\n  /* styles for edit delete and add actions in table */\r\n  .action-icons img {\r\n    height: 25px;\r\n    width: 25px;\r\n    cursor: pointer;\r\n  }\r\n  \r\n  /* Manual order section styles */\r\n  .order-container {\r\n    padding: 20px 20px 20px 0px;\r\n  }\r\n  \r\n  .order-container div:first-child {\r\n    margin-right: 50px;\r\n  }\r\n  \r\n  .order-container input {\r\n    height: 30px;\r\n    padding: 5px;\r\n    margin-bottom: 25px;\r\n    border-radius: 3px;\r\n    border: 1px solid var(--primary-bg-3);\r\n  }\r\n  \r\n  .order-container select {\r\n    padding: 5px;\r\n    height: 40px;\r\n    width: 255px;\r\n    border-radius: 3px;\r\n    border: 1px solid var(--primary-bg-3);\r\n  }\r\n  \r\n  .order-container label {\r\n    margin-bottom: 10px;\r\n  }\r\n  \r\n  .btn.submit-order {\r\n    color: var(--secondary-bg-1);\r\n    border-color: var(--secondary-bg-1);\r\n    border-radius: 17px;\r\n    height: 35px !important;\r\n  }\r\n  \r\n  /* Admin page graph and stats section styles */\r\n  \r\n  .graph-view {\r\n    height: 800px;\r\n    padding: 10px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n  }\r\n  \r\n  .graph-view .carousel-container {\r\n    border: 1px solid var(--primary-bg-3);\r\n    box-shadow: 0px 0px 3px 0px var(--primary-bg-3);\r\n  }\r\n  \r\n  .graph-view img{\r\n    height: 300px;\r\n    width: 90%;\r\n  }\r\n  \r\n  .number-card {\r\n    width: 70%;\r\n    margin-right: 70px;\r\n    height: 100px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    border: 1px solid var(--primary-bg-3);\r\n    box-shadow: 0px 0px 2px 0px var(--primary-bg-3);\r\n  }\r\n  \r\n  .number-container {\r\n    margin-left: 65px;\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .slides {\r\n    display: flex;\r\n    justify-content: center;\r\n  }\r\n  \r\n  .pill-container {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n  }\r\n  \r\n  .pill-container .pills {\r\n    height: 10px;\r\n    width: 20px;\r\n    border: 1px solid var(--secondary-bg);\r\n    border-radius: 15px;\r\n    margin-right: 8px;\r\n    margin-top: 20px;\r\n    cursor: pointer;\r\n  }\r\n  \r\n  .admin-container .pill-container .pills.active {\r\n    background-color: var(--primary-bg) !important;\r\n    border-color: var(--primary-bg) !important;\r\n  }\r\n\r\n  .pills:hover {\r\n    border-color: var(--secondary-label-1) !important;\r\n  }\r\n  \r\n  .carousel-container {\r\n    width: 90%;\r\n    padding: 25px;\r\n  }\r\n  \r\n  .number-card span:first-child {\r\n    font-size: 26px;\r\n    font-weight: 300;\r\n    padding-bottom: 20px;\r\n  }\r\n  \r\n  /* responsive css for manager and admin page */\r\n  @media only screen and (max-device-width: 480px) {\r\n    .container, .section-header{\r\n      font-size: 24px !important;\r\n    }\r\n\r\n    .section-container {\r\n      flex-direction: column !important;\r\n      margin-bottom: 30px;\r\n    }\r\n  \r\n    .section-content {\r\n      width: 100% !important;\r\n      margin-bottom: 30px;\r\n    }\r\n  \r\n    .graph-view {\r\n        height: 1000px !important;\r\n        max-height: unset !important;\r\n        margin-bottom: 20px;\r\n    }\r\n\r\n    .graph-view img {\r\n      width: 80%;  \r\n    }\r\n\r\n    .number-card {\r\n        height: 200px !important;\r\n        margin-top: 70px;\r\n        width: 33%;\r\n        margin-right: 10px;\r\n    }\r\n    .number-card span:first-child {\r\n        font-size: 24px;\r\n    }\r\n  \r\n    .number-card span:last-child {\r\n      font-size: 30px;\r\n    }\r\n    .number-container {\r\n        flex-wrap: wrap;\r\n        margin-left: 10px;\r\n    }\r\n  \r\n    .btn.submit-order {\r\n        height: 48px  !important;\r\n    }\r\n  \r\n    body {\r\n        overflow-x: hidden;\r\n    }\r\n\r\n    .manage-container{\r\n      padding: 10px !important;\r\n    }\r\n\r\n    .order-container{\r\n      flex-direction: column !important;\r\n    }\r\n\r\n    .order-container select{\r\n      margin-bottom: 15px;\r\n    }\r\n\r\n    .carousel-container{\r\n      width: 80%;\r\n    }\r\n  }\r\n\r\n  .section-header {\r\n    font-family: \"Oswald\", sans-serif;\r\n    font-weight: 300 !important;\r\n  }\r\n\r\n  .administration-bg {\r\n    background-color: var(--color-light);\r\n    overflow-x: clip;\r\n  }\r\n\r\n  .cursor-pointer {\r\n    cursor: pointer;\r\n  }\r\n\r\n  .edit-icon img:first-child{\r\n    content:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") !important;\r\n    height: 25px;\r\n    width: 25px;\r\n    cursor: pointer;\r\n  }\r\n  .action-icons img:first-child {\r\n    content:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  }\r\n  .action-icons img:last-child {\r\n    content:url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  }\r\n\r\n  .action-icons img{\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n\r\n/* Button used to open the chat form - fixed at the bottom of the page */\r\n.open-button {\r\n  background-color: #555;\r\n  color: white;\r\n  padding: 16px 20px;\r\n  border: none;\r\n  cursor: pointer;\r\n  opacity: 0.8;\r\n  position: fixed;\r\n  bottom: 23px;\r\n  right: 28px;\r\n  width: 280px;\r\n}\r\n\r\n/* The popup chat - hidden by default */\r\n.chat-popup {\r\n  display: none;\r\n  position: fixed;\r\n  bottom: 0;\r\n  right: 15px;\r\n  border: 3px solid #f1f1f1;\r\n  z-index: 9;\r\n}\r\n\r\n/* Add styles to the form container */\r\n.form-container {\r\n  max-width: 600px;\r\n  padding: 10px;\r\n  background-color: white;\r\n}\r\n\r\n/* Full-width textarea */\r\n.form-container textarea {\r\n  background: #f1f1f1;\r\n  margin-left: 0px;\r\n}\r\n\r\n/* When the textarea gets focus, do something */\r\n.form-container textarea:focus {\r\n  background-color: #ddd;\r\n  outline: none;\r\n}\r\n\r\n/* Set a style for the submit/login button */\r\n.form-container .btn {\r\n  padding: 16px 20px;\r\n  cursor: pointer;\r\n  width: 100%;\r\n  margin-bottom:10px;\r\n  opacity: 0.8;\r\n}\r\n\r\n/* Add a red background color to the cancel button */\r\n.form-container .cancel {\r\n  color: red;\r\n  border: 1px solid #555;\r\n}\r\n\r\n/* Add some hover effects to buttons */\r\n.form-container .btn:hover, .open-button:hover {\r\n  opacity: 1;\r\n}\r\n\r\n.open-button {\r\n  background-color: #555;\r\n  color: white;\r\n  border-radius: 15px;\r\n  padding: 16px 20px;\r\n  border: none;\r\n  cursor: pointer;\r\n  opacity: 0.8;\r\n  position: fixed;\r\n  bottom: 23px;\r\n  right: 28px;\r\n  width: 100px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22035,7 +22068,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\n\n/* COLOR USED :\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n  --state-danger: #c62828;\n  --state-warning: #f9a825;\n  --state-success: #558b2f;\n*/\n\nbody {\n    /* use the font */\n    font-family: \"Roboto\", sans-serif;\n    background-color: var(--primary-bg);\n    color: var(--primary-label);\n    margin: 0;\n    background-attachment: fixed;\n  }\n  \n  /* login and registration section and container styles */\n  \n  .login-section,\n  .registration-section {\n    align-items: center;\n    height: calc(100vh - 85px);\n  }\n  \n  .login-container,\n  .registration-container {\n    border-radius: 5px;\n    min-height: 500px;\n    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4);\n    background-color: var(--color-light);\n    color: var(--primary-label-2) !important;\n  }\n  \n  .registration-container {\n    padding-bottom: 25px;\n  }\n  \n  .login-container .login-header,\n  .registration-container .registration-header {\n    font-size: 36px;\n    font-weight: 400;\n    margin-top: 45px;\n    padding-bottom: 10px;\n  }\n  \n  .login-container input,\n  .registration-container input {\n    width: 300px;\n    height: 35px;\n    margin: 20px 45px;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 15px;\n    padding: 3px;\n    border: 0 !important;\n    border-bottom: 1px solid var(--primary-label-1) !important;\n  }\n  \n  .login-container input:focus-visible,\n  .registration-container input:focus-visible {\n    outline: none;\n  }\n  \n  .registration-container .name-input {\n    width: 148px !important;\n  }\n  .name-input:first-child {\n    margin-right: 0px !important;\n  }\n  .name-input:last-child {\n    margin-left: 5px !important;\n  }\n  \n  /* \n  login and register button styles */\n  \n  .login-btn,\n  .register-btn {\n    width: 75%;\n    height: 40px;\n    margin-top: 20px;\n    color: var(--secondary-bg-1) !important;\n    cursor: pointer;\n    font-size: 15px;\n    border-radius: 20px !important;\n  }\n  \n  /* responsive css for login and registration page */\n  @media only screen and (max-device-width: 480px){\n    .login-section{\n      justify-content: flex-start !important;\n      flex-direction: column  !important;\n      align-items: center !important;\n      min-height: 100%;\n    }\n  \n    .login-section div.image-container{\n      display: none;\n    }\n  \n    .login-container {\n      transform: scale(.8);\n    }\n  \n  \n  \n    .registration-section{\n      justify-content: flex-start !important;\n      flex-direction: column  !important;\n      min-height: 100%;\n    }\n  \n    .registration-section div.image-container{\n      display: none;\n    }\n  \n    .registration-container {\n      transform: scale(.8);\n    }\n  \n    body {\n      overflow-x: hidden;\n  }\n  }\n\n  .link-style {\n    cursor: pointer;\n    font-weight: 500;\n    color: var(--primary-bg-1);\n  }\n  \n\n  .authentication-section {\n    background-color: var(--primary-bg);\n  }\n\n  #invalid-cred {\n    color: rgb(196, 28, 28);\n    text-align: center;\n    padding: 8px;\n    width: 70%;\n  }\n\n  .user-label {\n    margin-left: 10px;\n    padding-right: 20px;\n    font-size: 15px;\n  }\n\n  .user-select {\n    width: 200px;\n    margin-left: 20px;\n    margin-right: 0px;\n  }\n\n  .hide-section {\n    display: none !important;\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*  \r\nThirumurthy,Sujitraj , UTA ID : 1001830297 \r\nSelvaraj, Nikil Nandha, UTA ID : 1002004184\r\nMandava, Sai Venkat, UTA: 1001955604\r\n*/\r\n\r\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\r\n\r\n/* COLOR USED :\r\n  --primary-bg: #2c2c2c;\r\n  --primary-bg-1: #252525;\r\n  --primary-bg-2: #757575;\r\n  --primary-bg-3: #9e9e9e;\r\n  --secondary-bg: #03a9f4;\r\n  --secondary-bg-1: #01579b;\r\n  --secondary-bg-2: #40c4ff;\r\n  --secondary-bg-3: #b3e5fc;\r\n  --color-light: #ffffff;\r\n  --primary-label: #fafafa;\r\n  --primary-label-1: #cccaca;\r\n  --primary-label-2: #616161;\r\n  --secondary-label: #e1f5fe;\r\n  --secondary-label-1: #80d8ff;\r\n  --secondary-label-2: #039be5;\r\n  --state-danger: #c62828;\r\n  --state-warning: #f9a825;\r\n  --state-success: #558b2f;\r\n*/\r\n\r\nbody {\r\n    /* use the font */\r\n    font-family: \"Roboto\", sans-serif;\r\n    background-color: var(--primary-bg);\r\n    color: var(--primary-label);\r\n    margin: 0;\r\n    background-attachment: fixed;\r\n  }\r\n  \r\n  /* login and registration section and container styles */\r\n  \r\n  .login-section,\r\n  .registration-section {\r\n    align-items: center;\r\n    height: calc(100vh - 85px);\r\n  }\r\n  \r\n  .login-container,\r\n  .registration-container {\r\n    border-radius: 5px;\r\n    min-height: 500px;\r\n    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4);\r\n    background-color: var(--color-light);\r\n    color: var(--primary-label-2) !important;\r\n  }\r\n  \r\n  .registration-container {\r\n    padding-bottom: 25px;\r\n  }\r\n  \r\n  .login-container .login-header,\r\n  .registration-container .registration-header {\r\n    font-size: 36px;\r\n    font-weight: 400;\r\n    margin-top: 45px;\r\n    padding-bottom: 10px;\r\n  }\r\n  \r\n  .login-container input,\r\n  .registration-container input {\r\n    width: 300px;\r\n    height: 35px;\r\n    margin: 20px 45px;\r\n    font-family: \"Roboto\", sans-serif;\r\n    font-size: 15px;\r\n    padding: 3px;\r\n    border: 0 !important;\r\n    border-bottom: 1px solid var(--primary-label-1) !important;\r\n  }\r\n  \r\n  .login-container input:focus-visible,\r\n  .registration-container input:focus-visible {\r\n    outline: none;\r\n  }\r\n  \r\n  .registration-container .name-input {\r\n    width: 148px !important;\r\n  }\r\n  .name-input:first-child {\r\n    margin-right: 0px !important;\r\n  }\r\n  .name-input:last-child {\r\n    margin-left: 5px !important;\r\n  }\r\n  \r\n  /* \r\n  login and register button styles */\r\n  \r\n  .login-btn,\r\n  .register-btn {\r\n    width: 75%;\r\n    height: 40px;\r\n    margin-top: 20px;\r\n    color: var(--secondary-bg-1) !important;\r\n    cursor: pointer;\r\n    font-size: 15px;\r\n    border-radius: 20px !important;\r\n  }\r\n  \r\n  /* responsive css for login and registration page */\r\n  @media only screen and (max-device-width: 480px){\r\n    .login-section{\r\n      justify-content: flex-start !important;\r\n      flex-direction: column  !important;\r\n      align-items: center !important;\r\n      min-height: 100%;\r\n    }\r\n  \r\n    .login-section div.image-container{\r\n      display: none;\r\n    }\r\n  \r\n    .login-container {\r\n      transform: scale(.8);\r\n    }\r\n  \r\n  \r\n  \r\n    .registration-section{\r\n      justify-content: flex-start !important;\r\n      flex-direction: column  !important;\r\n      min-height: 100%;\r\n    }\r\n  \r\n    .registration-section div.image-container{\r\n      display: none;\r\n    }\r\n  \r\n    .registration-container {\r\n      transform: scale(.8);\r\n    }\r\n  \r\n    body {\r\n      overflow-x: hidden;\r\n  }\r\n  }\r\n\r\n  .link-style {\r\n    cursor: pointer;\r\n    font-weight: 500;\r\n    color: var(--primary-bg-1);\r\n  }\r\n  \r\n\r\n  .authentication-section {\r\n    background-color: var(--primary-bg);\r\n  }\r\n\r\n  #invalid-cred {\r\n    color: rgb(196, 28, 28);\r\n    text-align: center;\r\n    padding: 8px;\r\n    width: 70%;\r\n  }\r\n\r\n  .user-label {\r\n    margin-left: 10px;\r\n    padding-right: 20px;\r\n    font-size: 15px;\r\n  }\r\n\r\n  .user-select {\r\n    width: 200px;\r\n    margin-left: 20px;\r\n    margin-right: 0px;\r\n  }\r\n\r\n  .hide-section {\r\n    display: none !important;\r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22059,7 +22092,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".chatbot{\n    width: 100% !important;\n}\n.display_message {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  width: 100%;\n  max-height: 360px;\n  overflow-y: scroll;\n  flex: 3;\n  padding-right: 50px;\n}\n\n.display_message p.d-block{\n  order: 1px solid var(--secondary-bg-2);\n  margin:5px 10px;\n}\n\n.authorname{\n  color: #e5930f;\n    font-size: 16px;\n    font-weight: 600;\n}\n\n.chatBox {\n  height: 50px;\n  width: 100%;\n}\n\n.chatBox textarea,\n.chatBox button {\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  height: 50px;\n}\n\n.chatBox button {\n  justify-content: center;\n}\n\n.chat-area {\n  flex-direction: column-reverse;\n  align-items: flex-end;\n  flex: 1;\n  height: 50px;\n  max-height: 50px;\n}\n\n.user-dashboard-container {\n    height: calc(100vh - 195px);\n  }\n  \n\n  @media only screen and (max-device-width: 480px) {\n    .info-content .chat-container {\n      height: calc(100vh - 150px)  !important;\n    }\n    .display_message {\n      max-height: 100%;\n    }\n    .display_message p{\n      font-size: 35px;\n      border-radius: 20px;\n    }\n    .display_message textarea {\n      width: 100% !important;\n    }\n    .chatBox {\n      width: 100%;\n      transform: scale(1);\n    }\n    .clear:hover {\n      border-color: var(--state-danger);\n      color: var(--state-danger);\n  }\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".chatbot{\r\n    width: 100% !important;\r\n}\r\n.display_message {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: flex-end;\r\n  width: 100%;\r\n  max-height: 360px;\r\n  overflow-y: scroll;\r\n  flex: 3;\r\n  padding-right: 50px;\r\n}\r\n\r\n.display_message p.d-block{\r\n  order: 1px solid var(--secondary-bg-2);\r\n  margin:5px 10px;\r\n}\r\n\r\n.authorname{\r\n  color: #e5930f;\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n}\r\n\r\n.chatBox {\r\n  height: 50px;\r\n  width: 100%;\r\n}\r\n\r\n.chatBox textarea,\r\n.chatBox button {\r\n  display: flex;\r\n  align-items: center;\r\n  font-size: 16px;\r\n  height: 50px;\r\n}\r\n\r\n.chatBox button {\r\n  justify-content: center;\r\n}\r\n\r\n.chat-area {\r\n  flex-direction: column-reverse;\r\n  align-items: flex-end;\r\n  flex: 1;\r\n  height: 50px;\r\n  max-height: 50px;\r\n}\r\n\r\n.user-dashboard-container {\r\n    height: calc(100vh - 195px);\r\n  }\r\n  \r\n\r\n  @media only screen and (max-device-width: 480px) {\r\n    .info-content .chat-container {\r\n      height: calc(100vh - 150px)  !important;\r\n    }\r\n    .display_message {\r\n      max-height: 100%;\r\n    }\r\n    .display_message p{\r\n      font-size: 35px;\r\n      border-radius: 20px;\r\n    }\r\n    .display_message textarea {\r\n      width: 100% !important;\r\n    }\r\n    .chatBox {\r\n      width: 100%;\r\n      transform: scale(1);\r\n    }\r\n    .clear:hover {\r\n      border-color: var(--state-danger);\r\n      color: var(--state-danger);\r\n  }\r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22083,7 +22116,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\n\n/* COLOR USED :\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n  --state-danger: #c62828;\n  --state-warning: #f9a825;\n  --state-success: #558b2f;\n*/\n\n.container {\n    display: grid;\n    background-color: var(--primary-bg-1);\n    width: auto;\n  }\n  .heading { \n    display: inline-grid;\n    text-align: center;\n    padding: 30px;\n    color: var(--primary-label-1);\n    font-size: 30px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n  }\n  .innerHeading {\n    display: grid;\n    text-align: center;\n    color: var(--primary-label-2);\n  }\n  .formContainer {\n    display: flex;\n    flex-direction: column;\n    height: 300px;\n    color: var(--primary-label-2);\n    align-items: center;\n    height: 100%;\n    margin-top: 40px;\n  }\n  \n  .formContainer .field-container {\n    width: 58vw;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-evenly;\n  }\n  \n  .contact-form input[type=\"text\"] {\n    width: 100%;\n    padding: 12px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n    margin: 15px;\n    resize: vertical;\n  }\n  .contact-form input[type=\"number\"] {\n    width: 100%;\n    padding: 12px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n    margin: 15px;\n    resize: vertical;\n  }\n  textarea {\n    width: 97% !important;\n    padding: 12px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n    height: 100px;\n    margin: 15px;\n  }\n  \n  .buttons {\n    justify-content: flex-end;\n  }\n  \n  .submit,\n  .clear {\n    border-radius: 12px;\n    margin-top: 15px;\n    cursor: pointer;\n    margin-right: 20px;\n  }\n  \n  .submit {\n    color: var(--secondary-bg-1);\n  }\n  \n  .clear {\n    color: var(--state-danger);\n    border-color: var(--state-danger);\n  }\n  \n  body {\n    background-color: white !important;\n    height: 100%;\n    overflow-y: scroll;\n  }\n  \n  \n  /* media query for contact us page for device width less than 480px  */\n  @media only screen and (max-device-width: 480px){\n    .mediaPhone{\n      display: flex;\n      justify-content: space-around;\n      flex-direction: column;\n    }\n    .formContainer .field-container {\n      transform: scale(1.2);\n      margin-top: 30px;\n    }\n    textarea {\n      width: 100% !important;\n    }\n    .buttons{\n      margin-left: 17px !important;\n      justify-content: center;\n      flex-direction: row;\n      width: 109%;\n      margin-bottom: 40px!important;\n    }\n    .container{\n      width: 100%;\n    }\n    .heading {\n      font-size: 40px !important;\n    }  \n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*  \r\nThirumurthy,Sujitraj , UTA ID : 1001830297 \r\nSelvaraj, Nikil Nandha, UTA ID : 1002004184\r\nMandava, Sai Venkat, UTA: 1001955604\r\n*/\r\n\r\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\r\n\r\n/* COLOR USED :\r\n  --primary-bg: #2c2c2c;\r\n  --primary-bg-1: #252525;\r\n  --primary-bg-2: #757575;\r\n  --primary-bg-3: #9e9e9e;\r\n  --secondary-bg: #03a9f4;\r\n  --secondary-bg-1: #01579b;\r\n  --secondary-bg-2: #40c4ff;\r\n  --secondary-bg-3: #b3e5fc;\r\n  --color-light: #ffffff;\r\n  --primary-label: #fafafa;\r\n  --primary-label-1: #cccaca;\r\n  --primary-label-2: #616161;\r\n  --secondary-label: #e1f5fe;\r\n  --secondary-label-1: #80d8ff;\r\n  --secondary-label-2: #039be5;\r\n  --state-danger: #c62828;\r\n  --state-warning: #f9a825;\r\n  --state-success: #558b2f;\r\n*/\r\n\r\n.container {\r\n    display: grid;\r\n    background-color: var(--primary-bg-1);\r\n    width: auto;\r\n  }\r\n  .heading { \r\n    display: inline-grid;\r\n    text-align: center;\r\n    padding: 30px;\r\n    color: var(--primary-label-1);\r\n    font-size: 30px !important;\r\n    font-weight: 300;\r\n    letter-spacing: 1px;\r\n  }\r\n  .innerHeading {\r\n    display: grid;\r\n    text-align: center;\r\n    color: var(--primary-label-2);\r\n  }\r\n  .formContainer {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: 300px;\r\n    color: var(--primary-label-2);\r\n    align-items: center;\r\n    height: 100%;\r\n    margin-top: 40px;\r\n  }\r\n  \r\n  .formContainer .field-container {\r\n    width: 58vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-evenly;\r\n  }\r\n  \r\n  .contact-form input[type=\"text\"] {\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin: 15px;\r\n    resize: vertical;\r\n  }\r\n  .contact-form input[type=\"number\"] {\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin: 15px;\r\n    resize: vertical;\r\n  }\r\n  textarea {\r\n    width: 97% !important;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    height: 100px;\r\n    margin: 15px;\r\n  }\r\n  \r\n  .buttons {\r\n    justify-content: flex-end;\r\n  }\r\n  \r\n  .submit,\r\n  .clear {\r\n    border-radius: 12px;\r\n    margin-top: 15px;\r\n    cursor: pointer;\r\n    margin-right: 20px;\r\n  }\r\n  \r\n  .submit {\r\n    color: var(--secondary-bg-1);\r\n  }\r\n  \r\n  .clear {\r\n    color: var(--state-danger);\r\n    border-color: var(--state-danger);\r\n  }\r\n  \r\n  body {\r\n    background-color: white !important;\r\n    height: 100%;\r\n    overflow-y: scroll;\r\n  }\r\n  \r\n  \r\n  /* media query for contact us page for device width less than 480px  */\r\n  @media only screen and (max-device-width: 480px){\r\n    .mediaPhone{\r\n      display: flex;\r\n      justify-content: space-around;\r\n      flex-direction: column;\r\n    }\r\n    .formContainer .field-container {\r\n      transform: scale(1.2);\r\n      margin-top: 30px;\r\n    }\r\n    textarea {\r\n      width: 100% !important;\r\n    }\r\n    .buttons{\r\n      margin-left: 17px !important;\r\n      justify-content: center;\r\n      flex-direction: row;\r\n      width: 109%;\r\n      margin-bottom: 40px!important;\r\n    }\r\n    .container{\r\n      width: 100%;\r\n    }\r\n    .heading {\r\n      font-size: 40px !important;\r\n    }  \r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22131,7 +22164,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* w3 schools css*/\n#snackbar {\n    visibility: hidden; \n    min-width: 250px; \n    margin-left: -125px;\n    background-color: rgb(154, 211, 122);\n    color: rgb(37, 37, 37); \n    text-align: center;\n    border-radius: 5px;\n    padding: 16px;\n    position: fixed;\n    z-index: 1;\n    left: 50%;\n    bottom: 30px;\n  }\n  #snackbar.danger{\n    background-color: rgb(214, 103, 103);\n    color: white;\n  }\n  #snackbar.show {\n    visibility: visible;\n    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  }\n  \n  @-webkit-keyframes fadein {\n    from {bottom: 0; opacity: 0;}\n    to {bottom: 30px; opacity: 1;}\n  }\n  \n  @keyframes fadein {\n    from {bottom: 0; opacity: 0;}\n    to {bottom: 30px; opacity: 1;}\n  }\n  \n  @-webkit-keyframes fadeout {\n    from {bottom: 30px; opacity: 1;}\n    to {bottom: 0; opacity: 0;}\n  }\n  \n  @keyframes fadeout {\n    from {bottom: 30px; opacity: 1;}\n    to {bottom: 0; opacity: 0;}\n  }\n\n  .hide-section {\n    display: none !important;\n  }\n\n  .logout-tab{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    cursor: pointer;\n    padding-bottom: 5px;\n  }\n\n  .logout-tab p {\n    color: var(--primary-label-1);\n  }\n\n  .logout-tab img{\n    padding-left: 10px;\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* w3 schools css*/\r\n#snackbar {\r\n    visibility: hidden; \r\n    min-width: 250px; \r\n    margin-left: -125px;\r\n    background-color: rgb(154, 211, 122);\r\n    color: rgb(37, 37, 37); \r\n    text-align: center;\r\n    border-radius: 5px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 50%;\r\n    bottom: 30px;\r\n  }\r\n  #snackbar.danger{\r\n    background-color: rgb(214, 103, 103);\r\n    color: white;\r\n  }\r\n  #snackbar.show {\r\n    visibility: visible;\r\n    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n  }\r\n  \r\n  @-webkit-keyframes fadein {\r\n    from {bottom: 0; opacity: 0;}\r\n    to {bottom: 30px; opacity: 1;}\r\n  }\r\n  \r\n  @keyframes fadein {\r\n    from {bottom: 0; opacity: 0;}\r\n    to {bottom: 30px; opacity: 1;}\r\n  }\r\n  \r\n  @-webkit-keyframes fadeout {\r\n    from {bottom: 30px; opacity: 1;}\r\n    to {bottom: 0; opacity: 0;}\r\n  }\r\n  \r\n  @keyframes fadeout {\r\n    from {bottom: 30px; opacity: 1;}\r\n    to {bottom: 0; opacity: 0;}\r\n  }\r\n\r\n  .hide-section {\r\n    display: none !important;\r\n  }\r\n\r\n  .logout-tab{\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    cursor: pointer;\r\n    padding-bottom: 5px;\r\n  }\r\n\r\n  .logout-tab p {\r\n    color: var(--primary-label-1);\r\n  }\r\n\r\n  .logout-tab img{\r\n    padding-left: 10px;\r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22155,7 +22188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\n\n/* COLOR USED :\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n  --state-danger: #c62828;\n  --state-warning: #f9a825;\n  --state-success: #558b2f;\n*/\nbody {\n    /* use the font */\n    font-family: \"Roboto\", sans-serif;\n    background-color: var(--primary-bg);\n    color: var(--primary-label);\n    margin: 0;\n    background-attachment: fixed;\n    overflow-y: scroll;\n    overflow-x: hidden;\n    height: 100vh;\n  }\n  \n  .poster {\n    min-height: 300px;\n    background-color: var(--color-light);\n    color: var(--primary-label-2);\n  }\n  \n  /* carousel slideshow styles */\n  .carousel-container {\n    margin-top: 30px;\n  }\n  \n  .carousel {\n    margin: 20px;\n    width: 90%;\n    padding-left: 25px;\n    border-radius: 7px;\n    min-height: 300px;\n    box-shadow: 0 0 5px 0 rgba(156, 156, 156, 0.2);\n    position: relative;\n    left: 2.5%;\n    background: inherit;\n    color: var(--primary-label-1);\n    overflow: hidden;\n  }\n  \n  .carousel::before {\n    margin: -20px;\n    border-radius: 7px;\n    content: \"\";\n    position: absolute;\n    background: inherit;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    box-shadow: inset 0 0 2000px rgba(124, 124, 124, 0.5);\n    filter: blur(10px);\n    z-index: -1;\n  }\n  \n  /* section-break styles */\n  \n  .page-break {\n    margin: 0px 30px;\n    border-color: var(--primary-bg-2);\n  }\n  \n  /* info section styles */\n  \n  .info-link {\n    min-height: 300px;\n    padding: 0px 30px;\n    align-items: center;\n  }\n  \n  .info-link img {\n    height: 450px;\n    width: 450px;\n  }\n  \n  .services-link {\n    text-decoration: none;\n    color: var(--primary-label-1);\n    cursor: pointer;\n    font-size: 18px;\n    margin-top: 15px;\n    font-weight: 300;\n  }\n  \n  .services-link:hover {\n    color: var(--color-light) !important;\n    text-decoration: underline;\n  }\n  \n  .about-description {\n    color: var(--primary-label-1);\n    font-size: 18px;\n    font-weight: 300;\n  }\n  .info-link a .arrow-right {\n    height: 12px;\n    width: 12px;\n  }\n  \n  .slides {\n    display: none;\n  }\n  \n  /* The pills indicators */\n  \n  .pill-container {\n    text-align: center;\n    position: relative;\n    top: 2%;\n  }\n  .pills {\n    cursor: pointer;\n    height: 3px;\n    width: 25px;\n    margin: 2px 1px;\n    display: inline-block;\n    transition: background-color 0.6s ease;\n  }\n  \n  .pills:hover {\n    background-color: var(--secondary-label-1);\n    border-color: var(--primary-bg) !important;\n  }\n\n  .home-carousel .pills.active{\n    background-color: var(--color-light)  !important;\n    border-color: var(--primary-bg) !important;\n  }\n  \n  /* carousel offer section styles */\n  \n  .offer-info {\n    font-size: 60px !important;\n    margin: 10px 0px;\n  }\n  \n  /* carousel customer review section styles */\n  \n  .review-content div:first-child {\n    font-size: 30px;\n    font-weight: 300;\n    margin-top: 15px;\n  }\n  \n  .customer-review {\n    margin-top: 50px;\n  }\n  .customer-review span {\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n  }\n  \n  .customer-review span img {\n    height: 25px;\n    width: 70px;\n  }\n  \n  /* carousel price listing section styles */\n  .price-listing span {\n    font-size: 18px;\n  }\n  \n  \n  /* responsive css for home page */\n  @media only screen and (max-device-width: 480px){\n    .about-description, .text-description {\n      display: none;\n    }\n  \n    .poster {\n      padding-right: 15px;\n      align-items: center;\n    }\n  \n    .text-header {\n      font-size: 24px !important;\n    }\n  \n    body {\n      overflow-x: hidden;\n  }\n\n  .info-section-container img{\n    width: 200px;\n    height: 200px;\n  }\n}\n\n  .info-section-container {\n    background-color: var(--primary-bg);\n  }\n  ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*  \r\nThirumurthy,Sujitraj , UTA ID : 1001830297 \r\nSelvaraj, Nikil Nandha, UTA ID : 1002004184\r\nMandava, Sai Venkat, UTA: 1001955604\r\n*/\r\n\r\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\r\n\r\n/* COLOR USED :\r\n  --primary-bg: #2c2c2c;\r\n  --primary-bg-1: #252525;\r\n  --primary-bg-2: #757575;\r\n  --primary-bg-3: #9e9e9e;\r\n  --secondary-bg: #03a9f4;\r\n  --secondary-bg-1: #01579b;\r\n  --secondary-bg-2: #40c4ff;\r\n  --secondary-bg-3: #b3e5fc;\r\n  --color-light: #ffffff;\r\n  --primary-label: #fafafa;\r\n  --primary-label-1: #cccaca;\r\n  --primary-label-2: #616161;\r\n  --secondary-label: #e1f5fe;\r\n  --secondary-label-1: #80d8ff;\r\n  --secondary-label-2: #039be5;\r\n  --state-danger: #c62828;\r\n  --state-warning: #f9a825;\r\n  --state-success: #558b2f;\r\n*/\r\nbody {\r\n    /* use the font */\r\n    font-family: \"Roboto\", sans-serif;\r\n    background-color: var(--primary-bg);\r\n    color: var(--primary-label);\r\n    margin: 0;\r\n    background-attachment: fixed;\r\n    overflow-y: scroll;\r\n    overflow-x: hidden;\r\n    height: 100vh;\r\n  }\r\n  \r\n  .poster {\r\n    min-height: 300px;\r\n    background-color: var(--color-light);\r\n    color: var(--primary-label-2);\r\n  }\r\n  \r\n  /* carousel slideshow styles */\r\n  .carousel-container {\r\n    margin-top: 30px;\r\n  }\r\n  \r\n  .carousel {\r\n    margin: 20px;\r\n    width: 90%;\r\n    padding-left: 25px;\r\n    border-radius: 7px;\r\n    min-height: 300px;\r\n    box-shadow: 0 0 5px 0 rgba(156, 156, 156, 0.2);\r\n    position: relative;\r\n    left: 2.5%;\r\n    background: inherit;\r\n    color: var(--primary-label-1);\r\n    overflow: hidden;\r\n  }\r\n  \r\n  .carousel::before {\r\n    margin: -20px;\r\n    border-radius: 7px;\r\n    content: \"\";\r\n    position: absolute;\r\n    background: inherit;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    box-shadow: inset 0 0 2000px rgba(124, 124, 124, 0.5);\r\n    filter: blur(10px);\r\n    z-index: -1;\r\n  }\r\n  \r\n  /* section-break styles */\r\n  \r\n  .page-break {\r\n    margin: 0px 30px;\r\n    border-color: var(--primary-bg-2);\r\n  }\r\n  \r\n  /* info section styles */\r\n  \r\n  .info-link {\r\n    min-height: 300px;\r\n    padding: 0px 30px;\r\n    align-items: center;\r\n  }\r\n  \r\n  .info-link img {\r\n    height: 450px;\r\n    width: 450px;\r\n  }\r\n  \r\n  .services-link {\r\n    text-decoration: none;\r\n    color: var(--primary-label-1);\r\n    cursor: pointer;\r\n    font-size: 18px;\r\n    margin-top: 15px;\r\n    font-weight: 300;\r\n  }\r\n  \r\n  .services-link:hover {\r\n    color: var(--color-light) !important;\r\n    text-decoration: underline;\r\n  }\r\n  \r\n  .about-description {\r\n    color: var(--primary-label-1);\r\n    font-size: 18px;\r\n    font-weight: 300;\r\n  }\r\n  .info-link a .arrow-right {\r\n    height: 12px;\r\n    width: 12px;\r\n  }\r\n  \r\n  .slides {\r\n    display: none;\r\n  }\r\n  \r\n  /* The pills indicators */\r\n  \r\n  .pill-container {\r\n    text-align: center;\r\n    position: relative;\r\n    top: 2%;\r\n  }\r\n  .pills {\r\n    cursor: pointer;\r\n    height: 3px;\r\n    width: 25px;\r\n    margin: 2px 1px;\r\n    display: inline-block;\r\n    transition: background-color 0.6s ease;\r\n  }\r\n  \r\n  .pills:hover {\r\n    background-color: var(--secondary-label-1);\r\n    border-color: var(--primary-bg) !important;\r\n  }\r\n\r\n  .home-carousel .pills.active{\r\n    background-color: var(--color-light)  !important;\r\n    border-color: var(--primary-bg) !important;\r\n  }\r\n  \r\n  /* carousel offer section styles */\r\n  \r\n  .offer-info {\r\n    font-size: 60px !important;\r\n    margin: 10px 0px;\r\n  }\r\n  \r\n  /* carousel customer review section styles */\r\n  \r\n  .review-content div:first-child {\r\n    font-size: 30px;\r\n    font-weight: 300;\r\n    margin-top: 15px;\r\n  }\r\n  \r\n  .customer-review {\r\n    margin-top: 50px;\r\n  }\r\n  .customer-review span {\r\n    flex: 1;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n  }\r\n  \r\n  .customer-review span img {\r\n    height: 25px;\r\n    width: 70px;\r\n  }\r\n  \r\n  /* carousel price listing section styles */\r\n  .price-listing span {\r\n    font-size: 18px;\r\n  }\r\n  \r\n  \r\n  /* responsive css for home page */\r\n  @media only screen and (max-device-width: 480px){\r\n    .about-description, .text-description {\r\n      display: none;\r\n    }\r\n  \r\n    .poster {\r\n      padding-right: 15px;\r\n      align-items: center;\r\n    }\r\n  \r\n    .text-header {\r\n      font-size: 24px !important;\r\n    }\r\n  \r\n    body {\r\n      overflow-x: hidden;\r\n  }\r\n\r\n  .info-section-container img{\r\n    width: 200px;\r\n    height: 200px;\r\n  }\r\n}\r\n\r\n  .info-section-container {\r\n    background-color: var(--primary-bg);\r\n  }\r\n  ", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22179,7 +22212,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n/*\n * All the Color Variables for ui elements will be defined in here \n*/\n\n:root {\n  /* Background colors */\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n\n  /* Label colors */\n\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n\n  /* State colors */\n  --state-danger: #c62828;\n  --state-danger-1: #b71c1c;\n  --state-danger-2: #ef5350;\n  --state-danger-3: #f44336;\n  --state-danger-light: #ffebee;\n\n  --state-warning: #f9a825;\n  --state-warning-1: #f57f17;\n  --state-warning-2: #fdd835;\n  --state-warning-3: #ffff00;\n  --state-warning-light: #fffde7;\n\n  --state-success: #558b2f;\n  --state-success-1: #33691e;\n  --state-success-2: #8bc34a;\n  --state-success-3: #b2ff59;\n  --state-success-light: #f1f8e9;\n}\n\n.font-oswald {\n  font-family: \"Oswald\", sans-serif;\n}\n\n.font-roboto {\n  font-family: \"Roboto\", sans-serif;\n}\n\n.font-damion {\n  font-family: 'Damion', cursive;\n}\n\n.d-flex {\n  display: flex;\n}\n\n.d-none {\n  display: none;\n}\n\n.d-block {\n  display: block;\n}\n\n.justify-between {\n  justify-content: space-between;\n}\n\n.justify-around {\n  justify-content: space-around;\n}\n\n.justify-center {\n  justify-content: center;\n}\n\n.justify-evenly {\n  justify-content: space-evenly;\n}\n\n.align-items-center {\n  align-items: center;\n}\n.align-items-between {\n  align-items: space-between;\n}\n.align-items-around {\n  align-items: space-around;\n}\n\n.align-items-start {\n  align-items: flex-start;\n}\n\n.flex-direction-row {\n  flex-direction: row;\n}\n\n.flex-direction-column {\n  flex-direction: column;\n}\n.w-100 {\n  width: 100%;\n}\n\n.h-100 {\n  height: 100%;\n}\n\n.btn {\n  background-color: inherit;\n  border-radius: 3px;\n  padding: 5px 10px;\n  border: 1px solid var(--secondary-bg-1);\n  color: var(--primary-label);\n}\n\nheader.nav-header {\n  width: 100%;\n  padding: 10px;\n  background-color: var(--primary-bg-1);\n  position: -webkit-sticky;\n  position: sticky; /* Set the navbar to fixed position */\n  top: 0;\n  z-index: 1000;\n}\n\n.navbar {\n  flex: 6;\n}\n\n.navbar ul {\n  list-style: none;\n  align-items: center;\n  height: 50px;\n  max-height: 50px;\n}\n\n.nav-Link {\n  padding: 10px;\n  border-radius: 4px;\n}\n\n.nav-Link:hover {\n  background-color: var(--primary-bg);\n  color: var(--primary-label);\n}\n\n.nav-item .nav-Link {\n  text-decoration: none;\n  color: var(--primary-label-1);\n  font-weight: 300;\n  letter-spacing: 1px;\n}\n\n.nav-item.active .nav-Link {\n  color: var(--primary-label) !important;\n  border: 1px solid var(--secondary-label-2);\n  border-radius: 4px;\n}\n\n.nav-item:hover {\n  transform: scale(1.1);\n}\n\n.header-title {\n  align-items: center;\n  flex: 2;\n  padding-left: 10px;\n  font-size: 25px;\n  font-weight: 400;\n  color: var(--secondary-label-2);\n  letter-spacing: 1px;\n}\n\n.search-control {\n  margin-bottom: 3px;\n}\n.search-control input {\n  height: 30px;\n  margin-right: 7px;\n}\n\n.search-control .btn {\n  height: 30px;\n  cursor: pointer;\n}\n\nfooter {\n  background-color: var(--primary-bg-1);\n  color: var(--primary-label-1);\n  min-height: 120px;\n  position: relative;\n  bottom: 0px;\n  margin-top: 30px;\n  padding-bottom: 35px;\n}\n\n.footer-links {\n  list-style: none;\n  width: 70%;\n}\n\n.footer-link-item a {\n  text-decoration: none;\n  color: var(--primary-label-1);\n  font-weight: 300;\n  letter-spacing: 1px;\n}\n\n.social-media-links {\n  width: 17%;\n  padding-top: 15px;\n}\n\n.social-media-links a img {\n  height: 35px;\n  width: 35px;\n}\n\n.text-header {\n  font-size: 35px;\n  font-weight: 400;\n  word-wrap: break-word;\n  color: white;\n}\n\n.poster .text-header {\n  color: var(--primary-label-2);\n}\n\n.text-description {\n  font-size: 18px;\n  font-weight: 400;\n  word-wrap: break-word;\n  text-align: justify;\n}\n\n.logo {\n  text-decoration: none;\n  color: var(--secondary-label-2) !important;\n}\n\n/* Fading animation */\n.fade {\n  -webkit-animation-name: fade;\n  -webkit-animation-duration: 1.5s;\n  animation-name: fade;\n  animation-duration: 1.5s;\n}\n\n@-webkit-keyframes fade {\n  from {opacity: .4}\n  to {opacity: 1}\n}\n\n@keyframes fade {\n  from {opacity: .4}\n  to {opacity: 1}\n}\n\nbody {\n  overflow-x: hidden;\n}\n\n.text-align-center {\n  text-align: center !important;\n}\n\n.cursor-pointer {\n  cursor: pointer;\n}\n\n\n.carousel-container {\n  margin-top: 30px;\n}\n\n.carousel {\n  margin: 20px;\n  width: 90%;\n  padding-left: 25px;\n  border-radius: 7px;\n  min-height: 300px;\n  box-shadow: 0 0 5px 0 rgba(156, 156, 156, 0.2);\n  position: relative;\n  left: 2.5%;\n  background: inherit;\n  color: var(--primary-label-1);\n  overflow: hidden;\n}\n\n.carousel::before{\n  margin: -20px;\n  border-radius: 7px;\n  content: \"\";\n  position: absolute;\n  background: inherit;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  box-shadow: inset 0 0 2000px rgba(124, 124, 124, 0.5);\n  filter: blur(10px);\n  z-index: -1;\n}\n\n\n\n.chatBox {\n  height: 50px;\n  width: 70%;\n}\n\n.chatBox textarea,\n.chatBox button {\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  height: 50px;\n}\n\n.chatBox button {\n  justify-content: center;\n}\n\n.chat-area {\n  flex-direction: column-reverse;\n  align-items: flex-end;\n  flex: 1;\n  height: 50px;\n  max-height: 50px;\n}\n\n.user-dashboard-container {\n  height: calc(100vh - 195px);\n}\n\n.side-bar-navigation {\n  flex-direction: column;\n  height: calc(100vh - 50px);\n  position: absolute;\n  width: 280px;\n  background-color: var(--color-light);\n  box-shadow: 0px 0px 3px 2px var(--primary-label-1);\n  display: none;\n  z-index: 2000000;\n  top: 57px;\n}\n\n.side-bar-navigation ul {\n  display: flex;\n  flex-direction: column;\n  list-style: none;\n}\n\n.side-bar-navigation li {\n  font-size: 28px;\n  padding: 20px;\n  color: var(--primary-bg) !important;\n  font-family: 'Roboto', 'sans-seriff';\n  font-weight: 300;\n}\n\n.side-bar-navigation a {\n  color: var(--primary-bg) !important;\n}\n\n\n/* responsive css for all pages */\n@media only screen and (max-device-width: 480px){ \n  .nav-header {\n    display: none;\n  }\n\n  .menu-header {\n    display: flex !important;\n    height: 55px;\n    background-color: var(--primary-bg);\n  }\n\n  .menu-header img {\n    padding: 10px;\n  }\n\n  .header-title {\n    justify-content: flex-end;\n    font-size: 22px;\n    height: 45px;\n    padding: 5px;\n  }\n\n  .carousel-container{\n    position:relative;\n    right: 2%;\n  }\n}\n\n.flex-container {\n  color: var(--color-light);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/*  \r\nThirumurthy,Sujitraj , UTA ID : 1001830297 \r\nSelvaraj, Nikil Nandha, UTA ID : 1002004184\r\nMandava, Sai Venkat, UTA: 1001955604\r\n*/\r\n\r\nbody {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\r\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n}\r\n\r\ncode {\r\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\r\n    monospace;\r\n}\r\n/*\r\n * All the Color Variables for ui elements will be defined in here \r\n*/\r\n\r\n:root {\r\n  /* Background colors */\r\n  --primary-bg: #2c2c2c;\r\n  --primary-bg-1: #252525;\r\n  --primary-bg-2: #757575;\r\n  --primary-bg-3: #9e9e9e;\r\n\r\n  --secondary-bg: #03a9f4;\r\n  --secondary-bg-1: #01579b;\r\n  --secondary-bg-2: #40c4ff;\r\n  --secondary-bg-3: #b3e5fc;\r\n  --color-light: #ffffff;\r\n\r\n  /* Label colors */\r\n\r\n  --primary-label: #fafafa;\r\n  --primary-label-1: #cccaca;\r\n  --primary-label-2: #616161;\r\n\r\n  --secondary-label: #e1f5fe;\r\n  --secondary-label-1: #80d8ff;\r\n  --secondary-label-2: #039be5;\r\n\r\n  /* State colors */\r\n  --state-danger: #c62828;\r\n  --state-danger-1: #b71c1c;\r\n  --state-danger-2: #ef5350;\r\n  --state-danger-3: #f44336;\r\n  --state-danger-light: #ffebee;\r\n\r\n  --state-warning: #f9a825;\r\n  --state-warning-1: #f57f17;\r\n  --state-warning-2: #fdd835;\r\n  --state-warning-3: #ffff00;\r\n  --state-warning-light: #fffde7;\r\n\r\n  --state-success: #558b2f;\r\n  --state-success-1: #33691e;\r\n  --state-success-2: #8bc34a;\r\n  --state-success-3: #b2ff59;\r\n  --state-success-light: #f1f8e9;\r\n}\r\n\r\n.font-oswald {\r\n  font-family: \"Oswald\", sans-serif;\r\n}\r\n\r\n.font-roboto {\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.font-damion {\r\n  font-family: 'Damion', cursive;\r\n}\r\n\r\n.d-flex {\r\n  display: flex;\r\n}\r\n\r\n.d-none {\r\n  display: none;\r\n}\r\n\r\n.d-block {\r\n  display: block;\r\n}\r\n\r\n.justify-between {\r\n  justify-content: space-between;\r\n}\r\n\r\n.justify-around {\r\n  justify-content: space-around;\r\n}\r\n\r\n.justify-center {\r\n  justify-content: center;\r\n}\r\n\r\n.justify-evenly {\r\n  justify-content: space-evenly;\r\n}\r\n\r\n.align-items-center {\r\n  align-items: center;\r\n}\r\n.align-items-between {\r\n  align-items: space-between;\r\n}\r\n.align-items-around {\r\n  align-items: space-around;\r\n}\r\n\r\n.align-items-start {\r\n  align-items: flex-start;\r\n}\r\n\r\n.flex-direction-row {\r\n  flex-direction: row;\r\n}\r\n\r\n.flex-direction-column {\r\n  flex-direction: column;\r\n}\r\n.w-100 {\r\n  width: 100%;\r\n}\r\n\r\n.h-100 {\r\n  height: 100%;\r\n}\r\n\r\n.btn {\r\n  background-color: inherit;\r\n  border-radius: 3px;\r\n  padding: 5px 10px;\r\n  border: 1px solid var(--secondary-bg-1);\r\n  color: var(--primary-label);\r\n}\r\n\r\nheader.nav-header {\r\n  width: 100%;\r\n  padding: 10px;\r\n  background-color: var(--primary-bg-1);\r\n  position: -webkit-sticky;\r\n  position: sticky; /* Set the navbar to fixed position */\r\n  top: 0;\r\n  z-index: 1000;\r\n}\r\n\r\n.navbar {\r\n  flex: 6;\r\n}\r\n\r\n.navbar ul {\r\n  list-style: none;\r\n  align-items: center;\r\n  height: 50px;\r\n  max-height: 50px;\r\n}\r\n\r\n.nav-Link {\r\n  padding: 10px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.nav-Link:hover {\r\n  background-color: var(--primary-bg);\r\n  color: var(--primary-label);\r\n}\r\n\r\n.nav-item .nav-Link {\r\n  text-decoration: none;\r\n  color: var(--primary-label-1);\r\n  font-weight: 300;\r\n  letter-spacing: 1px;\r\n}\r\n\r\n.nav-item.active .nav-Link {\r\n  color: var(--primary-label) !important;\r\n  border: 1px solid var(--secondary-label-2);\r\n  border-radius: 4px;\r\n}\r\n\r\n.nav-item:hover {\r\n  transform: scale(1.1);\r\n}\r\n\r\n.header-title {\r\n  align-items: center;\r\n  flex: 2;\r\n  padding-left: 10px;\r\n  font-size: 25px;\r\n  font-weight: 400;\r\n  color: var(--secondary-label-2);\r\n  letter-spacing: 1px;\r\n}\r\n\r\n.search-control {\r\n  margin-bottom: 3px;\r\n}\r\n.search-control input {\r\n  height: 30px;\r\n  margin-right: 7px;\r\n}\r\n\r\n.search-control .btn {\r\n  height: 30px;\r\n  cursor: pointer;\r\n}\r\n\r\nfooter {\r\n  background-color: var(--primary-bg-1);\r\n  color: var(--primary-label-1);\r\n  min-height: 120px;\r\n  position: relative;\r\n  bottom: 0px;\r\n  margin-top: 30px;\r\n  padding-bottom: 35px;\r\n}\r\n\r\n.footer-links {\r\n  list-style: none;\r\n  width: 70%;\r\n}\r\n\r\n.footer-link-item a {\r\n  text-decoration: none;\r\n  color: var(--primary-label-1);\r\n  font-weight: 300;\r\n  letter-spacing: 1px;\r\n}\r\n\r\n.social-media-links {\r\n  width: 17%;\r\n  padding-top: 15px;\r\n}\r\n\r\n.social-media-links a img {\r\n  height: 35px;\r\n  width: 35px;\r\n}\r\n\r\n.text-header {\r\n  font-size: 35px;\r\n  font-weight: 400;\r\n  word-wrap: break-word;\r\n  color: white;\r\n}\r\n\r\n.poster .text-header {\r\n  color: var(--primary-label-2);\r\n}\r\n\r\n.text-description {\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  word-wrap: break-word;\r\n  text-align: justify;\r\n}\r\n\r\n.logo {\r\n  text-decoration: none;\r\n  color: var(--secondary-label-2) !important;\r\n}\r\n\r\n/* Fading animation */\r\n.fade {\r\n  -webkit-animation-name: fade;\r\n  -webkit-animation-duration: 1.5s;\r\n  animation-name: fade;\r\n  animation-duration: 1.5s;\r\n}\r\n\r\n@-webkit-keyframes fade {\r\n  from {opacity: .4}\r\n  to {opacity: 1}\r\n}\r\n\r\n@keyframes fade {\r\n  from {opacity: .4}\r\n  to {opacity: 1}\r\n}\r\n\r\nbody {\r\n  overflow-x: hidden;\r\n}\r\n\r\n.text-align-center {\r\n  text-align: center !important;\r\n}\r\n\r\n.cursor-pointer {\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n.carousel-container {\r\n  margin-top: 30px;\r\n}\r\n\r\n.carousel {\r\n  margin: 20px;\r\n  width: 90%;\r\n  padding-left: 25px;\r\n  border-radius: 7px;\r\n  min-height: 300px;\r\n  box-shadow: 0 0 5px 0 rgba(156, 156, 156, 0.2);\r\n  position: relative;\r\n  left: 2.5%;\r\n  background: inherit;\r\n  color: var(--primary-label-1);\r\n  overflow: hidden;\r\n}\r\n\r\n.carousel::before{\r\n  margin: -20px;\r\n  border-radius: 7px;\r\n  content: \"\";\r\n  position: absolute;\r\n  background: inherit;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  box-shadow: inset 0 0 2000px rgba(124, 124, 124, 0.5);\r\n  filter: blur(10px);\r\n  z-index: -1;\r\n}\r\n\r\n\r\n\r\n.chatBox {\r\n  height: 50px;\r\n  width: 70%;\r\n}\r\n\r\n.chatBox textarea,\r\n.chatBox button {\r\n  display: flex;\r\n  align-items: center;\r\n  font-size: 16px;\r\n  height: 50px;\r\n}\r\n\r\n.chatBox button {\r\n  justify-content: center;\r\n}\r\n\r\n.chat-area {\r\n  flex-direction: column-reverse;\r\n  align-items: flex-end;\r\n  flex: 1;\r\n  height: 50px;\r\n  max-height: 50px;\r\n}\r\n\r\n.user-dashboard-container {\r\n  height: calc(100vh - 195px);\r\n}\r\n\r\n.side-bar-navigation {\r\n  flex-direction: column;\r\n  height: calc(100vh - 50px);\r\n  position: absolute;\r\n  width: 280px;\r\n  background-color: var(--color-light);\r\n  box-shadow: 0px 0px 3px 2px var(--primary-label-1);\r\n  display: none;\r\n  z-index: 2000000;\r\n  top: 57px;\r\n}\r\n\r\n.side-bar-navigation ul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  list-style: none;\r\n}\r\n\r\n.side-bar-navigation li {\r\n  font-size: 28px;\r\n  padding: 20px;\r\n  color: var(--primary-bg) !important;\r\n  font-family: 'Roboto', 'sans-seriff';\r\n  font-weight: 300;\r\n}\r\n\r\n.side-bar-navigation a {\r\n  color: var(--primary-bg) !important;\r\n}\r\n\r\n\r\n/* responsive css for all pages */\r\n@media only screen and (max-device-width: 480px){ \r\n  .nav-header {\r\n    display: none;\r\n  }\r\n\r\n  .menu-header {\r\n    display: flex !important;\r\n    height: 55px;\r\n    background-color: var(--primary-bg);\r\n  }\r\n\r\n  .menu-header img {\r\n    padding: 10px;\r\n  }\r\n\r\n  .header-title {\r\n    justify-content: flex-end;\r\n    font-size: 22px;\r\n    height: 45px;\r\n    padding: 5px;\r\n  }\r\n\r\n  .carousel-container{\r\n    position:relative;\r\n    right: 2%;\r\n  }\r\n}\r\n\r\n.flex-container {\r\n  color: var(--color-light);\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22203,7 +22236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".place-order-form input[type=\"text\"],\n.place-order-form input[type=\"number\"],\n.place-order-form input [type=\"email\"] {\n  flex: 1;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  margin: 15px;\n  resize: vertical;\n}\nselect {\n  width: 100%;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  margin: 15px;\n  resize: vertical;\n}\ntextarea {\n  width: 100% !important;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  height: 100px;\n  margin: 15px;\n}\n\n.submit,\n.clear {\n  width: 10%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n.subscribe {\n  width: 14%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n\n.clear:hover {\n  border-color: var(--state-danger);\n  color: var(--state-danger);\n}\n\n.submit:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n.subscribe:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n.orderButton {\n  width: 25%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n  color: var(--secondary-bg-1);\n}\n.orderButton:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n/* The snackbar - position it at the bottom and in the middle of the screen */\n#snackbar-order {\n  visibility: hidden; \n  min-width: 250px; \n  margin-left: -125px;\n  background-color: rgb(154, 211, 122);\n  color: rgb(37, 37, 37); \n  text-align: center;\n  border-radius: 5px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n}\n#snackbar-order.danger{\n  background-color: rgb(214, 103, 103);\n  color: white;\n}\n\n\n#snackbar-order.show {\n  visibility: visible; \n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n/* Animations to fade the snackbar in and out */\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".place-order-form input[type=\"text\"],\r\n.place-order-form input[type=\"number\"],\r\n.place-order-form input [type=\"email\"] {\r\n  flex: 1;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  margin: 15px;\r\n  resize: vertical;\r\n}\r\nselect {\r\n  width: 100%;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  margin: 15px;\r\n  resize: vertical;\r\n}\r\ntextarea {\r\n  width: 100% !important;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  height: 100px;\r\n  margin: 15px;\r\n}\r\n\r\n.submit,\r\n.clear {\r\n  width: 10%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n.subscribe {\r\n  width: 14%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n\r\n.clear:hover {\r\n  border-color: var(--state-danger);\r\n  color: var(--state-danger);\r\n}\r\n\r\n.submit:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n.subscribe:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n.orderButton {\r\n  width: 25%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n  color: var(--secondary-bg-1);\r\n}\r\n.orderButton:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n/* The snackbar - position it at the bottom and in the middle of the screen */\r\n#snackbar-order {\r\n  visibility: hidden; \r\n  min-width: 250px; \r\n  margin-left: -125px;\r\n  background-color: rgb(154, 211, 122);\r\n  color: rgb(37, 37, 37); \r\n  text-align: center;\r\n  border-radius: 5px;\r\n  padding: 16px;\r\n  position: fixed;\r\n  z-index: 1;\r\n  left: 50%;\r\n  bottom: 30px;\r\n}\r\n#snackbar-order.danger{\r\n  background-color: rgb(214, 103, 103);\r\n  color: white;\r\n}\r\n\r\n\r\n#snackbar-order.show {\r\n  visibility: visible; \r\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n/* Animations to fade the snackbar in and out */\r\n@-webkit-keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@-webkit-keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}\r\n\r\n@keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22227,7 +22260,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".register-container {\n    width: 150%;\n}\n.register-incident-form input[type=\"text\"],\n.register-incident-form input[type=\"number\"],\n.register-incident-form input [type=\"email\"] {\n  flex: 1;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  margin: 15px;\n  resize: vertical;\n}\nselect {\n  width: 100%;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  margin: 15px;\n  resize: vertical;\n}\ntextarea {\n  width: 100% !important;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  height: 100px;\n  margin: 15px;\n}\n\n.submit,\n.clear {\n  width: 10%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n.subscribe {\n  width: 14%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n\n.clear:hover {\n  border-color: var(--state-danger);\n  color: var(--state-danger);\n}\n\n.submit:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n.subscribe:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n.orderButton {\n  width: 25%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n.orderButton:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n#snackbar-register{\n  visibility: hidden; \n  min-width: 250px; \n  margin-left: -125px;\n  background-color: rgb(154, 211, 122);\n  color: rgb(37, 37, 37); \n  text-align: center;\n  border-radius: 5px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n}\n#snackbar-register.danger{\n  background-color: rgb(214, 103, 103);\n  color: white;\n}\n\n\n#snackbar-register.show {\n  visibility: visible; \n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n/* Animations to fade the snackbar in and out */\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n@media only screen and (max-device-width: 480px) {\n    .register-container {\n    width: 90%;\n    transform: scale(1);\n    margin-top: 20px;\n  }\n  .registerHeader{\n    font-size: 10px !important;\n    padding: 10px 0px;\n  }\n  .registerSelect{\n    width: 100%\n  };\n  .registerTextArea{\n    width: 90% !important;\n  }\n  input[type=\"number\"]{\n    width: 100% !important  ;\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".register-container {\r\n    width: 150%;\r\n}\r\n.register-incident-form input[type=\"text\"],\r\n.register-incident-form input[type=\"number\"],\r\n.register-incident-form input [type=\"email\"] {\r\n  flex: 1;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  margin: 15px;\r\n  resize: vertical;\r\n}\r\nselect {\r\n  width: 100%;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  margin: 15px;\r\n  resize: vertical;\r\n}\r\ntextarea {\r\n  width: 100% !important;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  height: 100px;\r\n  margin: 15px;\r\n}\r\n\r\n.submit,\r\n.clear {\r\n  width: 10%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n.subscribe {\r\n  width: 14%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n\r\n.clear:hover {\r\n  border-color: var(--state-danger);\r\n  color: var(--state-danger);\r\n}\r\n\r\n.submit:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n.subscribe:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n.orderButton {\r\n  width: 25%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n.orderButton:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n#snackbar-register{\r\n  visibility: hidden; \r\n  min-width: 250px; \r\n  margin-left: -125px;\r\n  background-color: rgb(154, 211, 122);\r\n  color: rgb(37, 37, 37); \r\n  text-align: center;\r\n  border-radius: 5px;\r\n  padding: 16px;\r\n  position: fixed;\r\n  z-index: 1;\r\n  left: 50%;\r\n  bottom: 30px;\r\n}\r\n#snackbar-register.danger{\r\n  background-color: rgb(214, 103, 103);\r\n  color: white;\r\n}\r\n\r\n\r\n#snackbar-register.show {\r\n  visibility: visible; \r\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n/* Animations to fade the snackbar in and out */\r\n@-webkit-keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@-webkit-keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}\r\n\r\n@keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}\r\n\r\n@media only screen and (max-device-width: 480px) {\r\n    .register-container {\r\n    width: 90%;\r\n    transform: scale(1);\r\n    margin-top: 20px;\r\n  }\r\n  .registerHeader{\r\n    font-size: 10px !important;\r\n    padding: 10px 0px;\r\n  }\r\n  .registerSelect{\r\n    width: 100%\r\n  };\r\n  .registerTextArea{\r\n    width: 90% !important;\r\n  }\r\n  input[type=\"number\"]{\r\n    width: 100% !important  ;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22251,7 +22284,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".schedule-container{\n    width: 100%;\n}\n.schedule-form input[type=\"text\"] ,.schedule-form  input[type=\"number\"] {\n    flex: 1;\n    padding: 12px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n    margin: 15px;\n    resize: vertical;\n  }\n  select{\n    width: 100%;\n    padding: 12px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n    margin: 15px;\n    resize: vertical;\n  }\n  textarea {\n    width: 100% !important;\n    padding: 12px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n    height: 100px;\n    margin: 15px;\n  }\n\n.submit,\n.clear {\n  width: 15% !important;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n.subscribe{\n    width: 14%;\n    border-radius: 12px;\n    margin-top: 15px;\n    cursor: pointer;\n    margin-right: 20px;\n    background-color: inherit;\n}\n\n.clear:hover {\n    border-color: var(--state-danger);\n    color: var(--state-danger);\n}\n\n.submit:hover {\n    border-color: var(--state-success);\n    color:var(--state-success);\n}\n.subscribe:hover {\n    border-color: var(--state-success);\n    color:var(--state-success);\n}\n\n.schedule{\n    font-size: 17px !important;\n    font-weight: 300 !important;\n}\n\n.schedule-dropoff div{ \n    margin: 15px;\n    flex: 1;\n}\n\n.schedule-dropoff input{\n    height: 25px;\n    padding: 5px;\n}\n\n.schedule-dropoff input:first-child {\n    flex: 2;\n    margin-right: 10px;\n}\n\n.schedule-dropoff input:last-child {\n    flex: 1;\n}\n.chatMessage{\n    justify-content: flex-end;\n}\n.dayTime{\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n}\n\n#snackbar-schedule{\n  visibility: hidden; \n  min-width: 250px; \n  margin-left: -125px;\n  background-color: rgb(154, 211, 122);\n  color: rgb(37, 37, 37); \n  text-align: center;\n  border-radius: 5px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n}\n#snackbar-schedule.danger{\n  background-color: rgb(214, 103, 103);\n  color: white;\n}\n\n\n#snackbar-schedule.show {\n  visibility: visible; \n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n/* Animations to fade the snackbar in and out */\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n/* @media only screen and (max-device-width: 480px){\n    .container{\n      width: 102%;\n      height: 150px !important;\n    }\n    .media{\n      display: flex;    \n      justify-content: space-around;\n      flex-direction: column;\n    }\n    .schedule-container{\n      width: 60%;\n      transform: scale(1);\n    }\n    .schedule {\n    font-size: 20px !important;\n    font-weight: 300 !important;\n    justify-content: center;\n  }\n  .sideNavHeader {\n    font-size: 40px !important;\n  }\n  .sideNav {\n    width: 400px !important;\n    font-size: 28px !important;\n  }\n  .submit,\n  .clear {\n    width: 25% !important;\n  }\n  .info-content .chat-container {\n    height: calc(100vh - 100px)  !important;\n  }\n  .display_message {\n    max-height: 80%;\n  }\n  .display_message p{\n    font-size: 35px;\n    border-radius: 20px;\n  }\n  .display_message textarea {\n    width: 90% !important;\n  }\n  .chatBox {\n    width: 75%;\n    transform: scale(1.5);\n  }\n  .clear:hover {\n    border-color: var(--state-danger);\n    color: var(--state-danger);\n}\n  .submit:hover {\n    border-color: var(--state-success);\n    color:var(--state-success);\n}\n} */\n\n@media only screen and (max-device-width: 480px){\n  .container{\n    width: 104%;\n    height: 100px !important;\n  }\n  .media{\n    display: flex;\n    justify-content: space-around;\n    flex-direction: column;\n  }\n  .schedule-container{\n    width: 100%;\n    transform: scale(1);\n  }\n  .schedule {\n  font-size: 20px !important;\n  font-weight: 300 !important;\n  justify-content: center;\n}\n.heading {\n  font-size: 25px !important;\n  margin-left: 100px;\n}\n.sideNavHeader {\n  font-size: 25px !important;\n  padding: 10px 0px !important;\n}\n.sideNav {\n  width: 100% !important;\n  font-size: 15px !important;\n  height: 140% !important;\n}\n.submit,\n.clear {\n  width: 25% !important;\n}\n\n.clear:hover {\n  border-color: var(--state-danger);\n  color: var(--state-danger);\n}\n.submit:hover {\n  border-color: var(--state-success);\n  color:var(--state-success);\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".schedule-container{\r\n    width: 100%;\r\n}\r\n.schedule-form input[type=\"text\"] ,.schedule-form  input[type=\"number\"] {\r\n    flex: 1;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin: 15px;\r\n    resize: vertical;\r\n  }\r\n  select{\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin: 15px;\r\n    resize: vertical;\r\n  }\r\n  textarea {\r\n    width: 100% !important;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    height: 100px;\r\n    margin: 15px;\r\n  }\r\n\r\n.submit,\r\n.clear {\r\n  width: 15% !important;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n.subscribe{\r\n    width: 14%;\r\n    border-radius: 12px;\r\n    margin-top: 15px;\r\n    cursor: pointer;\r\n    margin-right: 20px;\r\n    background-color: inherit;\r\n}\r\n\r\n.clear:hover {\r\n    border-color: var(--state-danger);\r\n    color: var(--state-danger);\r\n}\r\n\r\n.submit:hover {\r\n    border-color: var(--state-success);\r\n    color:var(--state-success);\r\n}\r\n.subscribe:hover {\r\n    border-color: var(--state-success);\r\n    color:var(--state-success);\r\n}\r\n\r\n.schedule{\r\n    font-size: 17px !important;\r\n    font-weight: 300 !important;\r\n}\r\n\r\n.schedule-dropoff div{ \r\n    margin: 15px;\r\n    flex: 1;\r\n}\r\n\r\n.schedule-dropoff input{\r\n    height: 25px;\r\n    padding: 5px;\r\n}\r\n\r\n.schedule-dropoff input:first-child {\r\n    flex: 2;\r\n    margin-right: 10px;\r\n}\r\n\r\n.schedule-dropoff input:last-child {\r\n    flex: 1;\r\n}\r\n.chatMessage{\r\n    justify-content: flex-end;\r\n}\r\n.dayTime{\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n}\r\n\r\n#snackbar-schedule{\r\n  visibility: hidden; \r\n  min-width: 250px; \r\n  margin-left: -125px;\r\n  background-color: rgb(154, 211, 122);\r\n  color: rgb(37, 37, 37); \r\n  text-align: center;\r\n  border-radius: 5px;\r\n  padding: 16px;\r\n  position: fixed;\r\n  z-index: 1;\r\n  left: 50%;\r\n  bottom: 30px;\r\n}\r\n#snackbar-schedule.danger{\r\n  background-color: rgb(214, 103, 103);\r\n  color: white;\r\n}\r\n\r\n\r\n#snackbar-schedule.show {\r\n  visibility: visible; \r\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n/* Animations to fade the snackbar in and out */\r\n@-webkit-keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@-webkit-keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}\r\n\r\n@keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}\r\n\r\n/* @media only screen and (max-device-width: 480px){\r\n    .container{\r\n      width: 102%;\r\n      height: 150px !important;\r\n    }\r\n    .media{\r\n      display: flex;    \r\n      justify-content: space-around;\r\n      flex-direction: column;\r\n    }\r\n    .schedule-container{\r\n      width: 60%;\r\n      transform: scale(1);\r\n    }\r\n    .schedule {\r\n    font-size: 20px !important;\r\n    font-weight: 300 !important;\r\n    justify-content: center;\r\n  }\r\n  .sideNavHeader {\r\n    font-size: 40px !important;\r\n  }\r\n  .sideNav {\r\n    width: 400px !important;\r\n    font-size: 28px !important;\r\n  }\r\n  .submit,\r\n  .clear {\r\n    width: 25% !important;\r\n  }\r\n  .info-content .chat-container {\r\n    height: calc(100vh - 100px)  !important;\r\n  }\r\n  .display_message {\r\n    max-height: 80%;\r\n  }\r\n  .display_message p{\r\n    font-size: 35px;\r\n    border-radius: 20px;\r\n  }\r\n  .display_message textarea {\r\n    width: 90% !important;\r\n  }\r\n  .chatBox {\r\n    width: 75%;\r\n    transform: scale(1.5);\r\n  }\r\n  .clear:hover {\r\n    border-color: var(--state-danger);\r\n    color: var(--state-danger);\r\n}\r\n  .submit:hover {\r\n    border-color: var(--state-success);\r\n    color:var(--state-success);\r\n}\r\n} */\r\n\r\n@media only screen and (max-device-width: 480px){\r\n  .container{\r\n    width: 104%;\r\n    height: 100px !important;\r\n  }\r\n  .media{\r\n    display: flex;\r\n    justify-content: space-around;\r\n    flex-direction: column;\r\n  }\r\n  .schedule-container{\r\n    width: 100%;\r\n    transform: scale(1);\r\n  }\r\n  .schedule {\r\n  font-size: 20px !important;\r\n  font-weight: 300 !important;\r\n  justify-content: center;\r\n}\r\n.heading {\r\n  font-size: 25px !important;\r\n  margin-left: 100px;\r\n}\r\n.sideNavHeader {\r\n  font-size: 25px !important;\r\n  padding: 10px 0px !important;\r\n}\r\n.sideNav {\r\n  width: 100% !important;\r\n  font-size: 15px !important;\r\n  height: 140% !important;\r\n}\r\n.submit,\r\n.clear {\r\n  width: 25% !important;\r\n}\r\n\r\n.clear:hover {\r\n  border-color: var(--state-danger);\r\n  color: var(--state-danger);\r\n}\r\n.submit:hover {\r\n  border-color: var(--state-success);\r\n  color:var(--state-success);\r\n}\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22275,7 +22308,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*  \nThirumurthy,Sujitraj , UTA ID : 1001830297 \nSelvaraj, Nikil Nandha, UTA ID : 1002004184\nMandava, Sai Venkat, UTA: 1001955604\n*/\n\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\n\n/* COLOR USED :\n  --primary-bg: #2c2c2c;\n  --primary-bg-1: #252525;\n  --primary-bg-2: #757575;\n  --primary-bg-3: #9e9e9e;\n  --secondary-bg: #03a9f4;\n  --secondary-bg-1: #01579b;\n  --secondary-bg-2: #40c4ff;\n  --secondary-bg-3: #b3e5fc;\n  --color-light: #ffffff;\n  --primary-label: #fafafa;\n  --primary-label-1: #cccaca;\n  --primary-label-2: #616161;\n  --secondary-label: #e1f5fe;\n  --secondary-label-1: #80d8ff;\n  --secondary-label-2: #039be5;\n  --state-danger: #c62828;\n  --state-warning: #f9a825;\n  --state-success: #558b2f;\n*/\n.container {\n    display: grid;\n    /* grid-template-columns: auto; */\n  \n    background-color: var(--primary-bg-1);\n    width: auto;\n  }\n  .heading {\n    display: inline-grid;\n    text-align: center;\n    padding: 30px;\n    color: var(--primary-label-1);\n    font-size: 30px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n  }\n  .column {\n    width: 30%;\n    padding: 10px;\n    height: 100px; /* Should be removed. Only for demonstration */\n  }\n  \n  /* Clear floats after the columns */\n  .row:after {\n    content: \"\";\n    display: table;\n    clear: both;\n  }\n\n  .flex-container {\n    margin : auto;\n    margin-top: 5%;\n    width: 90%;\n    display: flex;\n    flex-flow: row wrap;\n    justify-content: space-around;\n    height: -webkit-max-content;\n    height: -moz-max-content;\n    height: max-content;\n  }\n  .inner-flex-container {\n    display: flex;\n    flex-flow: column;\n    padding: 5px;\n    width: 32%;\n  }\n  .services-heading{\n    height: 120px;\n    padding: 5px;\n  }\n  .responsive {\nwidth: 80%;\nmax-height: 200px;\nmargin: 0px auto;\n  }\n  .services-text{\n    font-size: 1rem;\n    text-align: justify;\n  text-justify: inter-word;\n  padding: 5px;\n  }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*  \r\nThirumurthy,Sujitraj , UTA ID : 1001830297 \r\nSelvaraj, Nikil Nandha, UTA ID : 1002004184\r\nMandava, Sai Venkat, UTA: 1001955604\r\n*/\r\n\r\n/* FONT USED : Roboto Sans Serif , Oswald Sans Serif ,Damion cursive */\r\n\r\n/* COLOR USED :\r\n  --primary-bg: #2c2c2c;\r\n  --primary-bg-1: #252525;\r\n  --primary-bg-2: #757575;\r\n  --primary-bg-3: #9e9e9e;\r\n  --secondary-bg: #03a9f4;\r\n  --secondary-bg-1: #01579b;\r\n  --secondary-bg-2: #40c4ff;\r\n  --secondary-bg-3: #b3e5fc;\r\n  --color-light: #ffffff;\r\n  --primary-label: #fafafa;\r\n  --primary-label-1: #cccaca;\r\n  --primary-label-2: #616161;\r\n  --secondary-label: #e1f5fe;\r\n  --secondary-label-1: #80d8ff;\r\n  --secondary-label-2: #039be5;\r\n  --state-danger: #c62828;\r\n  --state-warning: #f9a825;\r\n  --state-success: #558b2f;\r\n*/\r\n.container {\r\n    display: grid;\r\n    /* grid-template-columns: auto; */\r\n  \r\n    background-color: var(--primary-bg-1);\r\n    width: auto;\r\n  }\r\n  .heading {\r\n    display: inline-grid;\r\n    text-align: center;\r\n    padding: 30px;\r\n    color: var(--primary-label-1);\r\n    font-size: 30px !important;\r\n    font-weight: 300;\r\n    letter-spacing: 1px;\r\n  }\r\n  .column {\r\n    width: 30%;\r\n    padding: 10px;\r\n    height: 100px; /* Should be removed. Only for demonstration */\r\n  }\r\n  \r\n  /* Clear floats after the columns */\r\n  .row:after {\r\n    content: \"\";\r\n    display: table;\r\n    clear: both;\r\n  }\r\n\r\n  .flex-container {\r\n    margin : auto;\r\n    margin-top: 5%;\r\n    width: 90%;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    justify-content: space-around;\r\n    height: -webkit-max-content;\r\n    height: -moz-max-content;\r\n    height: max-content;\r\n  }\r\n  .inner-flex-container {\r\n    display: flex;\r\n    flex-flow: column;\r\n    padding: 5px;\r\n    width: 32%;\r\n  }\r\n  .services-heading{\r\n    height: 120px;\r\n    padding: 5px;\r\n  }\r\n  .responsive {\r\nwidth: 80%;\r\nmax-height: 200px;\r\nmargin: 0px auto;\r\n  }\r\n  .services-text{\r\n    font-size: 1rem;\r\n    text-align: justify;\r\n  text-justify: inter-word;\r\n  padding: 5px;\r\n  }\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22299,7 +22332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sideNav {\n    height: 100%;\n    width: 250px;\n    z-index: 1;\n    left: 0;\n    background-color: var(--primary-bg-1);\n    overflow-x: hidden;\n    padding-top: 20px;\n  }\n  \n  .sideNav ul {\n    list-style: none;\n    align-items: center;\n  }\n  \n  .sideNavItem {\n    color: var(--primary-label-1);\n    font-weight: 300;\n    letter-spacing: 1px;\n    margin-bottom: 20px;\n  }\n  .sideNavItem a {\n    color: var(--primary-label-1);\n    text-decoration: none;\n  }\n  .sideNavItem.active .sideNav-link {\n    color: var(--primary-label) !important;\n    border-bottom: 4px solid var(--secondary-label-2);\n    border-radius: 4px;\n  }\n  \n  .sideNavItem:hover {\n    transform: scale(1.1);\n  }\n  \n  .sideNavHeader {\n    height: 50px;\n    color: var(--primary-bg-1);\n    font-size: 26px !important;\n    font-weight: 300;\n    letter-spacing: 1px;\n    padding: 25px 0px;\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sideNav {\r\n    height: 100%;\r\n    width: 250px;\r\n    z-index: 1;\r\n    left: 0;\r\n    background-color: var(--primary-bg-1);\r\n    overflow-x: hidden;\r\n    padding-top: 20px;\r\n  }\r\n  \r\n  .sideNav ul {\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  \r\n  .sideNavItem {\r\n    color: var(--primary-label-1);\r\n    font-weight: 300;\r\n    letter-spacing: 1px;\r\n    margin-bottom: 20px;\r\n  }\r\n  .sideNavItem a {\r\n    color: var(--primary-label-1);\r\n    text-decoration: none;\r\n  }\r\n  .sideNavItem.active .sideNav-link {\r\n    color: var(--primary-label) !important;\r\n    border-bottom: 4px solid var(--secondary-label-2);\r\n    border-radius: 4px;\r\n  }\r\n  \r\n  .sideNavItem:hover {\r\n    transform: scale(1.1);\r\n  }\r\n  \r\n  .sideNavHeader {\r\n    height: 50px;\r\n    color: var(--primary-bg-1);\r\n    font-size: 26px !important;\r\n    font-weight: 300;\r\n    letter-spacing: 1px;\r\n    padding: 25px 0px;\r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22323,7 +22356,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".subscribe-container {\n    width: 100%;\n  }\n\n.subscribe-form input[type=\"text\"],\n.subscribe-form input[type=\"number\"],\n.subscribe-form input [type=\"email\"] {\n  flex: 1;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  margin: 15px;\n  resize: vertical;\n}\nselect {\n  width: 100%;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  margin: 15px;\n  resize: vertical;\n}\ntextarea {\n  width: 100% !important;\n  padding: 12px;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n  height: 100px;\n  margin: 15px;\n}\n\n.submit,\n.clear {\n  width: 10%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n.subscribe {\n  width: 14%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n  color: var(--secondary-bg-1);\n}\n\n.clear:hover {\n  border-color: var(--state-danger);\n  color: var(--state-danger);\n}\n\n.submit:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n.subscribe:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n.orderButton {\n  width: 25%;\n  border-radius: 12px;\n  margin-top: 15px;\n  cursor: pointer;\n  margin-right: 20px;\n  background-color: inherit;\n}\n.orderButton:hover {\n  border-color: var(--state-success);\n  color: var(--state-success);\n}\n#snackbar-service {\n  visibility: hidden; \n  min-width: 250px; \n  margin-left: -125px;\n  background-color: rgb(154, 211, 122);\n  color: rgb(37, 37, 37); \n  text-align: center;\n  border-radius: 5px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n}\n#snackbar-service.danger{\n  background-color: rgb(214, 103, 103);\n  color: white;\n}\n\n\n#snackbar-service.show {\n  visibility: visible; \n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n/* Animations to fade the snackbar in and out */\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".subscribe-container {\r\n    width: 100%;\r\n  }\r\n\r\n.subscribe-form input[type=\"text\"],\r\n.subscribe-form input[type=\"number\"],\r\n.subscribe-form input [type=\"email\"] {\r\n  flex: 1;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  margin: 15px;\r\n  resize: vertical;\r\n}\r\nselect {\r\n  width: 100%;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  margin: 15px;\r\n  resize: vertical;\r\n}\r\ntextarea {\r\n  width: 100% !important;\r\n  padding: 12px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  box-sizing: border-box;\r\n  height: 100px;\r\n  margin: 15px;\r\n}\r\n\r\n.submit,\r\n.clear {\r\n  width: 10%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n.subscribe {\r\n  width: 14%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n  color: var(--secondary-bg-1);\r\n}\r\n\r\n.clear:hover {\r\n  border-color: var(--state-danger);\r\n  color: var(--state-danger);\r\n}\r\n\r\n.submit:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n.subscribe:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n.orderButton {\r\n  width: 25%;\r\n  border-radius: 12px;\r\n  margin-top: 15px;\r\n  cursor: pointer;\r\n  margin-right: 20px;\r\n  background-color: inherit;\r\n}\r\n.orderButton:hover {\r\n  border-color: var(--state-success);\r\n  color: var(--state-success);\r\n}\r\n#snackbar-service {\r\n  visibility: hidden; \r\n  min-width: 250px; \r\n  margin-left: -125px;\r\n  background-color: rgb(154, 211, 122);\r\n  color: rgb(37, 37, 37); \r\n  text-align: center;\r\n  border-radius: 5px;\r\n  padding: 16px;\r\n  position: fixed;\r\n  z-index: 1;\r\n  left: 50%;\r\n  bottom: 30px;\r\n}\r\n#snackbar-service.danger{\r\n  background-color: rgb(214, 103, 103);\r\n  color: white;\r\n}\r\n\r\n\r\n#snackbar-service.show {\r\n  visibility: visible; \r\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n/* Animations to fade the snackbar in and out */\r\n@-webkit-keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@keyframes fadein {\r\n  from {bottom: 0; opacity: 0;}\r\n  to {bottom: 30px; opacity: 1;}\r\n}\r\n\r\n@-webkit-keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}\r\n\r\n@keyframes fadeout {\r\n  from {bottom: 30px; opacity: 1;}\r\n  to {bottom: 0; opacity: 0;}\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22347,7 +22380,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media only screen and (max-device-width: 480px){\n    .sideNavHeader {\n        font-size: 25px !important;\n      }\n      .sideNav {\n        width:  57% !important;\n        font-size: 12px !important;\n        height: 100%!important  ;\n      }\n      \n\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media only screen and (max-device-width: 480px){\r\n    .sideNavHeader {\r\n        font-size: 25px !important;\r\n      }\r\n      .sideNav {\r\n        width:  57% !important;\r\n        font-size: 12px !important;\r\n        height: 100%!important  ;\r\n      }\r\n      \r\n\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

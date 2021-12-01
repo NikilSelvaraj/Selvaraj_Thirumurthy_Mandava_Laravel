@@ -55,7 +55,7 @@ function Chat() {
                     <div id="connecting">Connecting to web sockets server...</div>
                     <form className="d-flex flex-direction-column w-100 chat-area">
                         <div className="d-flex flex-direction-row chatBox">
-                            <textarea id="message" className="font-roboto" name="message" placeholder="Enter your Message" onKeyUp={handleKeyUp} required></textarea>
+                            <textarea id="message" className="font-roboto" name="message" placeholder="Enter your Message" onKeyUp={handleKeyUp}></textarea>
                             <button className="btn submit" type="submit" onClick={sendMessage}>Send</button>
                         </div>
                     </form>

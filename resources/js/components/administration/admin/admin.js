@@ -12,6 +12,7 @@ import edit from '../../assets/images/edit.png';
 import {Line, Bar} from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart }            from 'react-chartjs-2'
+import Chat from "../../chat/chat";
 function Admin () {
     const [noOfCustomer, setNoOfCustomers] = useState(0);
     const [noOfEquipments, setNoOfEquipments] = useState(0);
@@ -40,6 +41,13 @@ function Admin () {
         populateTables();
     },[]);
 
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
     useEffect(() => {
         populateCharts();
     },[customers,equipments,orders]);
@@ -760,7 +768,17 @@ function Admin () {
     </div>
 </div>
 </div>
-        </section>
+<button class="open-button" onClick={openForm}>Chat</button>
+<div class="chat-popup" id="myForm">
+  <form class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <Chat/>
+    <button type="button" class="btn cancel" onClick={closeForm}>Close</button>
+  </form>
+</div>
+</section>
     );
 }
 export default Admin;
