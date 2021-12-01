@@ -8,6 +8,7 @@ import deleteIcon from '../../assets/images/delete.png';
 import confirmIcon from '../../assets/images/tick.png';
 import discardIcon from '../../assets/images/close.png';
 import edit from '../../assets/images/edit.png';
+import Chat from "../../chat/chat";
 function Manager() {
     const [orders, setOrders] = useState([]);
     const [equipments, setEquipments] = useState([]);
@@ -641,6 +642,16 @@ function Manager() {
                     </div>
                 </div>
             </div>
+            <button class="open-button" onClick={openForm}>Chat</button>
+<div class="chat-popup" id="myForm">
+  <form class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <Chat/>
+    <button type="button" class="btn cancel" onClick={closeForm}>Close</button>
+  </form>
+</div>
         </section>
     );
 }
